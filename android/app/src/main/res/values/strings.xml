@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-   <string name="app_name">FruitApp</string>
-  <string name="facebook_app_id">629954806508809</string>
-  <string name="fb_login_protocol_scheme">fb32c135e7f0ad8987f027bc5cb12ffaa3</string>
+   <string name="app_name">Fruits</string>
+  <string name="facebook_app_id">635337052983330</string>
+  <string name="fb_login_protocol_scheme">968caff3837dd7bfb36aeb84e787366e</string>
   <string name="facebook_client_token">7d40721f4721e483a929acfdb527aa25</string>
 </resources>
