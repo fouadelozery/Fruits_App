@@ -42,11 +42,11 @@ class AuthRepoImp extends AuthRepo {
       return right(userEntity);
     } on Exceptions catch (e) {
       await deleteUser(user);
-      return left(ServerFailure(e.message));
+      return left(ServerFailure( message: e.message));
     } catch (e) {
       await deleteUser(user);
       log("Exception in create with emailandpassword  :$e ");
-      return left(ServerFailure("حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى"));
+      return left(ServerFailure( message: "حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى"));
     }
   }
 
@@ -71,10 +71,10 @@ class AuthRepoImp extends AuthRepo {
 
       return right(userEntity);
     } on FirebaseAuthException catch (e) {
-      return left(ServerFailure(e.message ?? "فشل تسجيل الدخول"));
+      return left(ServerFailure(message: e.message ?? "فشل تسجيل الدخول"));
     } catch (e, stack) {
       log("Exception in signInWithEmailAndPassword: $e", stackTrace: stack);
-      return left(ServerFailure("حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى"));
+      return left(ServerFailure(message: "حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى"));
     }
   }
 
@@ -89,7 +89,7 @@ class AuthRepoImp extends AuthRepo {
     } catch (e) {
       await deleteUser(user);
       log("Exception in create with log with face  :$e ");
-      return left(ServerFailure("حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى"));
+      return left(ServerFailure( message: "حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى"));
     }
   }
 

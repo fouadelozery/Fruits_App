@@ -2,7 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce/core/services/database_service.dart';
 
 class FireStoreServices implements DatabaseService {
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+
   @override
   Future<void> addData({
     required String path,
@@ -20,13 +21,30 @@ class FireStoreServices implements DatabaseService {
   Future<dynamic> getData({
     required String path,
     String? uid,
+    Map<String, dynamic>? query,
   }) async {
     if (uid != null) {
-      var data = await firestore.collection(path).doc(uid).get();
-      return data.data() ;
-    } else {
-      var data = await firestore.collection(path).get();
-      return data.docs.map((doc) => doc.data()).toList();
+      var docSnapshot = await firestore.collection(path).doc(uid).get();
+      return docSnapshot.data();
     }
+
+    if (query != null && query.containsKey('orderBy')) {
+      String orderByField = query['orderBy'];
+      bool descending = query['descending'] ?? false;
+      int? limit = query['limit'];
+
+      var collectionRef = firestore.collection(path);
+      var queryRef = collectionRef.orderBy(orderByField, descending: descending);
+
+      if (limit != null && limit > 0) {
+        queryRef = queryRef.limit(limit);
+      }
+
+      var querySnapshot = await queryRef.get();
+      return querySnapshot.docs.map((doc) => doc.data()).toList();
+    }
+
+    var data = await firestore.collection(path).get();
+    return data.docs.map((doc) => doc.data()).toList();
   }
 }

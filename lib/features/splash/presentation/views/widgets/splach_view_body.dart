@@ -3,7 +3,7 @@ import 'package:e_commerce/core/services/shared_perfernces.dart';
 import 'package:e_commerce/core/utiles/flutter_assets.dart';
 import 'package:e_commerce/core/widgets/constant.dart';
 import 'package:e_commerce/features/auth/presentation/view/login_view.dart';
-import 'package:e_commerce/features/home/view/home_view.dart';
+import 'package:e_commerce/features/home/view/main_view.dart';
 import 'package:e_commerce/features/onboarding/presentation/view/on_boarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -45,12 +45,12 @@ class _SplachViewBodyState extends State<SplachViewBody> {
     bool isOnBoardVisible = Preferences.getBool(kIsOnboardVisible) ?? false;
 
     Future.delayed(const Duration(seconds: 3), () {
-      if (!mounted) return; 
+      if (!mounted) return;
 
       if (isOnBoardVisible) {
         var isLoggedIn = FirebaseAuthService().isSignIn();
         if (isLoggedIn) {
-          Navigator.pushReplacementNamed(context, HomeView.routeName);
+          Navigator.pushReplacementNamed(context, MainView.routeName);
         } else {
           Navigator.pushReplacementNamed(context, LoginView.routeName);
         }

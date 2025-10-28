@@ -2,7 +2,7 @@ import 'package:e_commerce/core/helper/error_widget.dart';
 import 'package:e_commerce/core/services/get_it.dart';
 import 'package:e_commerce/features/auth/domin/repo/auth_repo.dart';
 import 'package:e_commerce/features/auth/presentation/cubits/login/login_cubit.dart';
-import 'package:e_commerce/features/home/view/home_view.dart';
+import 'package:e_commerce/features/home/view/main_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/widgets/login_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,7 +53,7 @@ class LoginView extends StatelessWidget {
             if (state is LoginSucces) {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (_) => const HomeView()),
+                MaterialPageRoute(builder: (_) => const MainView()),
               );
             } else if (state is LoginFailure) {
               errorWidget(context, state.errorMessage);
