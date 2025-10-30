@@ -27,7 +27,6 @@ List<ButtomNavigationEntity> get buttomNavigationItems => [
     inActiveImage: Assets.imagesVuesaxOutlineShoppingCart,
     name: "عربة التسوق",
   ),
-
   ButtomNavigationEntity(
     activeImage: Assets.imagesVuesaxBoldUser,
     inActiveImage: Assets.imagesVuesaxOutlineUser,

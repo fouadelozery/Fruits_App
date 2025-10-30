@@ -1,9 +1,10 @@
+import 'package:e_commerce/core/entities/product_entity.dart';
 import 'package:e_commerce/core/utiles/colors.dart';
-import 'package:e_commerce/core/utiles/flutter_assets.dart';
 import 'package:flutter/material.dart';
 
 class FruitItem extends StatelessWidget {
-  const FruitItem({super.key});
+  const FruitItem({super.key, required this.productEntity});
+  final ProductEntity productEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +31,26 @@ class FruitItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 32),
-                Image.asset(Assets.imagesItem),
+                Flexible(
+                  child: Image(
+                    image: getProductImage(productEntity.imageUrl),
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return const Center(
+                        child: Icon(
+                          Icons.broken_image,
+                          size: 50,
+                          color: Colors.grey,
+                        ),
+                      );
+                    },
+                  ),
+                ),
                 const SizedBox(height: 20),
-                const ListTile(
+                ListTile(
                   title: Text(
-                    "بطيخ",
-                    style: TextStyle(
+                    productEntity.name,
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 18,
                       fontFamily: 'Cairo',
@@ -46,15 +61,15 @@ class FruitItem extends StatelessWidget {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: "20 جنيه",
-                          style: TextStyle(
+                          text: "${productEntity.price} جنيه",
+                          style: const TextStyle(
                             color: Colors.red,
                             fontSize: 16,
                             fontFamily: 'Cairo',
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        TextSpan(
+                        const TextSpan(
                           text: "/",
                           style: TextStyle(
                             color: Colors.red,
@@ -63,16 +78,16 @@ class FruitItem extends StatelessWidget {
                           ),
                         ),
                         TextSpan(
-                          text: '',
-                          style: TextStyle(
+                          text: productEntity.unitAmount.toString(),
+                          style: const TextStyle(
                             color: Colors.red,
                             fontSize: 14,
                             fontFamily: 'Cairo',
                             decoration: TextDecoration.lineThrough,
                           ),
                         ),
-                        TextSpan(
-                          text: "الكيلو",
+                        const TextSpan(
+                          text: 'كيلو',
                           style: TextStyle(
                             color: Colors.red,
                             fontSize: 14,
@@ -82,7 +97,7 @@ class FruitItem extends StatelessWidget {
                       ],
                     ),
                   ),
-                  trailing: CircleAvatar(
+                  trailing: const CircleAvatar(
                     backgroundColor: AppColors.primaryColor,
                     child: Icon(Icons.add, color: Colors.white),
                   ),
@@ -96,4 +111,15 @@ class FruitItem extends StatelessWidget {
       ),
     );
   }
+}
+ImageProvider getProductImage(String? imageUrl) {
+  if (imageUrl == null || imageUrl.isEmpty) {
+    return const AssetImage("assets/images/placeholder.png"); // fallback
+  }
+
+  if (imageUrl.startsWith("http")) {
+    return NetworkImage(imageUrl);
+  }
+
+  return AssetImage(imageUrl); // local asset path
 }

@@ -4,6 +4,7 @@ import 'package:e_commerce/core/services/custom_bloc_observer.dart';
 import 'package:e_commerce/core/services/get_it.dart';
 import 'package:e_commerce/core/services/shared_perfernces.dart';
 import 'package:e_commerce/core/utiles/colors.dart';
+import 'package:e_commerce/features/home/view/widgets/home_view.dart';
 import 'package:e_commerce/features/splash/splash_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
