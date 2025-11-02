@@ -1,20 +1,24 @@
 import 'package:e_commerce/core/widgets/notifaction_widget.dart';
 import 'package:flutter/material.dart';
 
-AppBar buildappbar() {
+AppBar buildappbar({required String title,bool isBackVisible = true}) {
   return AppBar(
     backgroundColor: Colors.transparent,
 
     actions: const [
+
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: NoticationWidget(),
       ),
     ],
     centerTitle: true,
-    title: const Text(
-      'الأكثر مبيعاً',
-      style: TextStyle(
+    leading: Visibility(
+        visible: isBackVisible,
+      child: const Icon(Icons.arrow_back, color: Colors.black)),
+    title: Text(
+      title,
+      style: const TextStyle(
         color: Colors.black,
         fontSize: 20,
         fontFamily: 'Cairo',

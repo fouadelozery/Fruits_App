@@ -25,8 +25,6 @@ class FruitItem extends StatelessWidget {
           ),
 
           Positioned.fill(
-            top: 0,
-            right: 0,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -38,7 +36,7 @@ class FruitItem extends StatelessWidget {
                     errorBuilder: (context, error, stackTrace) {
                       return const Center(
                         child: Icon(
-                          Icons.broken_image,
+                          Icons.image_not_supported,
                           size: 50,
                           color: Colors.grey,
                         ),
@@ -102,7 +100,6 @@ class FruitItem extends StatelessWidget {
                     child: Icon(Icons.add, color: Colors.white),
                   ),
                 ),
-
                 const SizedBox(height: 8),
               ],
             ),
@@ -112,14 +109,15 @@ class FruitItem extends StatelessWidget {
     );
   }
 }
+
 ImageProvider getProductImage(String? imageUrl) {
   if (imageUrl == null || imageUrl.isEmpty) {
-    return const AssetImage("assets/images/placeholder.png"); // fallback
+    return const AssetImage("assets/images/placeholder.png"); 
   }
 
   if (imageUrl.startsWith("http")) {
     return NetworkImage(imageUrl);
   }
 
-  return AssetImage(imageUrl); // local asset path
+  return AssetImage(imageUrl);
 }

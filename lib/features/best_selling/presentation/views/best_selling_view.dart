@@ -9,7 +9,7 @@ class BestSellingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildappbar(),
+      appBar: buildappbar(title: 'الأكثر مبيعاً', isBackVisible: false),
       backgroundColor: Colors.white,
       body: const BestSellingViewBody(),
     );

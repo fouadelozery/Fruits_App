@@ -1,28 +1,27 @@
 import 'package:e_commerce/core/entities/product_entity.dart';
 
-ProductEntity getDummyProduct = ProductEntity(
-  name: "Avocado",
-  code: "AVO-001",
-  description: "Fresh organic avocado",
-  price: 5.99,
-  imageUrl: "assests/images/fruit2.jpg",
+ProductEntity getDummyAppleProduct = ProductEntity(
+  name: "Apple",
+  code: "APL-001",
+  description: "assests/images/item.png",
+  price: 3.99,
+  imageUrl: "",
   isFeature: true,
-  expireByMonth: 2,
-  numOfCalories: 160,
+  expireByMonth: 1,
+  numOfCalories: 95,
   unitAmount: 1,
   reviews: [],
-  countSold: 10,
-  isOrginic: true,
-  averageRating: 5,
+  countSold: 50,
+  averageRating: 4.5,
   ratingCount: 20,
+  isOrginic: true,
 );
+
 List<ProductEntity> getDemoProducts() {
   return [
-    getDummyProduct,
-    getDummyProduct,
-    getDummyProduct,
-    getDummyProduct,
-    getDummyProduct,
-    getDummyProduct,
+    getDummyAppleProduct,
+    getDummyAppleProduct,
+    getDummyAppleProduct,
+    getDummyAppleProduct,
   ];
 }

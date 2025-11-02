@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-class MostSellerBlocProvider extends StatelessWidget {
-  const MostSellerBlocProvider({super.key});
+class ProductsBlocProvider extends StatelessWidget {
+  const ProductsBlocProvider({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +14,8 @@ class MostSellerBlocProvider extends StatelessWidget {
       builder: (context, state) {
         if (state is ProductSuccess) {
           return MostSellingGridView(products: state.products);
-          
         } else if (state is ProductError) {
-          return SliverToBoxAdapter(
-            child: ErrorWidget(state.errorMessage),
-          );
+          return SliverToBoxAdapter(child: ErrorWidget(state.errorMessage));
         } else {
           return Skeletonizer.sliver(
             enabled: true,

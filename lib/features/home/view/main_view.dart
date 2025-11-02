@@ -18,7 +18,7 @@ class _MainViewState extends State<MainView> {
     final views = getCurrentView();
 
     return Scaffold(
-      body: views[currentIndex],
+      body: IndexedStack(index: currentIndex, children: views),
       bottomNavigationBar: Container(
         height: 70,
         padding: const EdgeInsets.symmetric(horizontal: 10),
