@@ -4,7 +4,6 @@ import 'package:e_commerce/features/home/view/widgets/home_appbar.dart';
 import 'package:e_commerce/features/home/view/widgets/home_search.dart';
 import 'package:e_commerce/features/home/view/widgets/most_seller.dart';
 import 'package:e_commerce/features/home/view/widgets/products_bloc_provider.dart';
-import 'package:e_commerce/features/home/view/widgets/most_selling_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,4 +1,3 @@
-import 'package:e_commerce/core/widgets/notifaction_widget.dart';
 import 'package:e_commerce/features/best_selling/presentation/views/widgets/best_selling_view_body.dart';
 import 'package:e_commerce/features/home/view/widgets/build_appbar.dart';
 import 'package:flutter/material.dart';

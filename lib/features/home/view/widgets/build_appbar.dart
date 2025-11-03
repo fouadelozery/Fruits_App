@@ -1,15 +1,17 @@
 import 'package:e_commerce/core/widgets/notifaction_widget.dart';
 import 'package:flutter/material.dart';
 
-AppBar buildappbar({required String title,bool isBackVisible = true}) {
+AppBar buildappbar({required String title,bool isBackVisible = true,bool isNotificationVisible = true}) {
   return AppBar(
     backgroundColor: Colors.transparent,
 
-    actions: const [
+    actions: [
 
       Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: NoticationWidget(),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Visibility(
+            visible:  isNotificationVisible ,
+          child:const NoticationWidget()),
       ),
     ],
     centerTitle: true,

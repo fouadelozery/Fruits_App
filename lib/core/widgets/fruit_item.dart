@@ -30,9 +30,9 @@ class FruitItem extends StatelessWidget {
               children: [
                 const SizedBox(height: 32),
                 Flexible(
-                  child: Image(
-                    image: getProductImage(productEntity.imageUrl),
-                    fit: BoxFit.cover,
+                  child: Image.network(
+                    productEntity.imageUrl ?? "",
+                    fit: BoxFit.contain,
                     errorBuilder: (context, error, stackTrace) {
                       return const Center(
                         child: Icon(
@@ -110,14 +110,3 @@ class FruitItem extends StatelessWidget {
   }
 }
 
-ImageProvider getProductImage(String? imageUrl) {
-  if (imageUrl == null || imageUrl.isEmpty) {
-    return const AssetImage("assets/images/placeholder.png"); 
-  }
-
-  if (imageUrl.startsWith("http")) {
-    return NetworkImage(imageUrl);
-  }
-
-  return AssetImage(imageUrl);
-}
