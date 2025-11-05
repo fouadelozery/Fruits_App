@@ -1,10 +1,10 @@
 import 'package:e_commerce/core/entities/product_entity.dart';
 
-class CardEntity {
+class CarItemEntity {
   final ProductEntity productEntity;
   int count;
 
-  CardEntity({required this.productEntity, this.count = 0});
+  CarItemEntity({required this.productEntity, this.count = 0});
   num calculateTotalPrice() {
     return productEntity.price * count;
   }

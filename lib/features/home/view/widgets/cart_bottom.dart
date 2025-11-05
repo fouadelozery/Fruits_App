@@ -1,16 +1,16 @@
 import 'package:e_commerce/core/utiles/colors.dart';
-import 'package:e_commerce/features/home/domain/entity/card_entity.dart';
+import 'package:e_commerce/features/home/domain/entity/car_entity.dart';
 import 'package:flutter/material.dart';
 
-class CardButton extends StatefulWidget {
-  const CardButton({super.key, required this.cardEntity});
- final CardEntity cardEntity;
+class CartButton extends StatefulWidget {
+  const CartButton({super.key, required this.cardEntity});
+  final CarItemEntity cardEntity;
 
   @override
-  State<CardButton> createState() => _CardButtonState();
+  State<CartButton> createState() => _CartButtonState();
 }
 
-class _CardButtonState extends State<CardButton> {
+class _CartButtonState extends State<CartButton> {
   int _quantity = 3;
 
   void _incrementQuantity() {
@@ -55,7 +55,7 @@ class _CardButtonState extends State<CardButton> {
           onPressed: _quantity > 0 ? _decrementQuantity : null,
         ),
         const Spacer(),
-         Text(
+        Text(
           "${widget.cardEntity.calculateTotalPrice()} جنيه",
           style: const TextStyle(
             fontSize: 16,

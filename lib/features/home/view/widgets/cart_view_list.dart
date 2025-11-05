@@ -1,11 +1,11 @@
 import 'package:e_commerce/core/utiles/colors.dart';
-import 'package:e_commerce/features/home/domain/entity/card_entity.dart';
-import 'package:e_commerce/features/home/view/widgets/card_item.dart';
+import 'package:e_commerce/features/home/domain/entity/car_entity.dart';
+import 'package:e_commerce/features/home/view/widgets/cart_item.dart';
 import 'package:flutter/material.dart';
 
-class CardViewList extends StatelessWidget {
-  const CardViewList({super.key, required this.cardItem});
-  final List<CardEntity> cardItem;
+class CartViewList extends StatelessWidget {
+  const CartViewList({super.key, required this.cardItem});
+  final List<CarItemEntity> cardItem;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class CardViewList extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.all(8.0),
-          child: CardItem(cardEntity: cardItem[index]),
+          child: CartItem(cardEntity: cardItem[index]),
         );
       },
       itemCount: cardItem.length,

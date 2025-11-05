@@ -1,11 +1,11 @@
 import 'package:e_commerce/core/utiles/colors.dart';
-import 'package:e_commerce/features/home/domain/entity/card_entity.dart';
-import 'package:e_commerce/features/home/view/widgets/card_bottom.dart';
+import 'package:e_commerce/features/home/domain/entity/car_entity.dart';
+import 'package:e_commerce/features/home/view/widgets/cart_bottom.dart';
 import 'package:flutter/material.dart';
 
-class CardItem extends StatelessWidget {
-  const CardItem({super.key, required this.cardEntity});
-  final CardEntity cardEntity;
+class CartItem extends StatelessWidget {
+  const CartItem({super.key, required this.cardEntity});
+  final CarItemEntity cardEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class CardItem extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  CardButton(cardEntity: cardEntity),
+                  CartButton(cardEntity: cardEntity),
                 ],
               ),
             ),

@@ -30,18 +30,31 @@ class FruitItem extends StatelessWidget {
               children: [
                 const SizedBox(height: 32),
                 Flexible(
-                  child: Image.network(
-                    productEntity.imageUrl ?? "",
-                    fit: BoxFit.contain,
-                    errorBuilder: (context, error, stackTrace) {
-                      return const Center(
-                        child: Icon(
-                          Icons.image_not_supported,
-                          size: 50,
-                          color: Colors.grey,
+                  child: Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(32),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(32),
+
+                        child: Image.network(
+                          productEntity.imageUrl ?? "",
+                          fit: BoxFit.fill,
+                          height: 200,
+                          width: 170,
+                          errorBuilder: (context, error, stackTrace) {
+                            return const Center(
+                              child: Icon(
+                                Icons.image_not_supported,
+                                size: 50,
+                                color: Colors.grey,
+                              ),
+                            );
+                          },
                         ),
-                      );
-                    },
+                      ),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -109,4 +122,3 @@ class FruitItem extends StatelessWidget {
     );
   }
 }
-

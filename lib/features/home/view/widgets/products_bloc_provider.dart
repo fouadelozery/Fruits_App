@@ -16,10 +16,14 @@ class ProductsBlocProvider extends StatelessWidget {
           return MostSellingGridView(products: state.products);
         } else if (state is ProductError) {
           return SliverToBoxAdapter(child: ErrorWidget(state.errorMessage));
-        } else {
+        } else if (state is ProductLoading) {
           return Skeletonizer.sliver(
             enabled: true,
             child: MostSellingGridView(products: getDemoProducts()),
+          );
+        } else {
+          return SliverToBoxAdapter(
+            child: Center(child: Text('Unknown state: $state')),
           );
         }
       },

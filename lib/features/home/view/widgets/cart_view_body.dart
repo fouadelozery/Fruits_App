@@ -1,11 +1,11 @@
 import 'package:e_commerce/core/widgets/custtom_buttom.dart';
 import 'package:e_commerce/features/home/view/widgets/build_appbar.dart';
-import 'package:e_commerce/features/home/view/widgets/card_item.dart';
-import 'package:e_commerce/features/home/view/widgets/card_view_list.dart';
+import 'package:e_commerce/features/home/view/widgets/cart_item.dart';
+import 'package:e_commerce/features/home/view/widgets/cart_view_list.dart';
 import 'package:flutter/material.dart';
 
-class CardViewBody extends StatelessWidget {
-  const CardViewBody({super.key});
+class CartViewBody extends StatelessWidget {
+  const CartViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class CardViewBody extends StatelessWidget {
                 ],
               ),
             ),
-            const CardViewList(cardItem: []),
+            const CartViewList(cardItem: []),
           ],
         ),
         Positioned(

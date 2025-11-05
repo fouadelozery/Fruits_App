@@ -9,12 +9,19 @@ import 'package:e_commerce/core/utiles/endpoint.dart';
 
 class ProductRepoImplement implements ProductRepo {
   @override
-  Future<Either<Failure, List<ProductEntity>>> getBestSellingProducts()  async{
+  Future<Either<Failure, List<ProductEntity>>> getBestSellingProducts() async {
     try {
       final databaseService = FireStoreServices();
 
-var data = await databaseService.getData(path: Endpoint.getProducts,
-      query: {'orderBy':'countSold','descending':true,'limit':10})
+      var data =
+          await databaseService.getData(
+                path: Endpoint.getProducts,
+                query: {
+                  'orderBy': 'countSold',
+                  'descending': true,
+                  'limit': 10,
+                },
+              )
               as List<Map<String, dynamic>>;
       List<ProductModel> products =
           data.map((e) => ProductModel.fromJson(e)).toList();
@@ -23,14 +30,16 @@ var data = await databaseService.getData(path: Endpoint.getProducts,
       return Right(entityProducts);
     } catch (e) {
       return Left(ServerFailure(message: "Failed to fetch products: $e"));
-    }  }
+    }
+  }
 
   @override
   Future<Either<Failure, List<ProductEntity>>> getProducts() async {
     try {
       final databaseService = FireStoreServices();
 
-var data = await databaseService.getData(path: Endpoint.getProducts)
+      var data =
+          await databaseService.getData(path: Endpoint.getProducts)
               as List<Map<String, dynamic>>;
       List<ProductModel> products =
           data.map((e) => ProductModel.fromJson(e)).toList();
