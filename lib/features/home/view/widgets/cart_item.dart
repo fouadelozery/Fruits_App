@@ -1,10 +1,15 @@
-import 'package:e_commerce/core/utiles/colors.dart';
-import 'package:e_commerce/features/home/domain/entity/car_entity.dart';
+import 'package:e_commerce/features/home/domain/entity/car_item_entity.dart';
+import 'package:e_commerce/features/home/presentation/cubits/card_cubit/cart_cubit.dart';
 import 'package:e_commerce/features/home/view/widgets/cart_bottom.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CartItem extends StatelessWidget {
-  const CartItem({super.key, required this.cardEntity});
+  const CartItem({
+    super.key,
+    required this.cardEntity,
+    required CarItemEntity cartEntityItem,
+  });
   final CarItemEntity cardEntity;
 
   @override
@@ -44,7 +49,11 @@ class CartItem extends StatelessWidget {
                         ),
                         const Spacer(),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context.read<CartCubit>().removeProductFromCart(
+                              cardEntity.productEntity,
+                            );
+                          },
                           icon: const Icon(Icons.delete, color: Colors.black),
                         ),
                       ],

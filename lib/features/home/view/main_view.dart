@@ -1,11 +1,14 @@
+import 'package:e_commerce/features/home/presentation/cubits/card_cubit/cart_cubit.dart';
 import 'package:e_commerce/features/home/view/get_current_view.dart';
+import 'package:e_commerce/features/home/view/widgets/main_view_body_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/features/home/domain/entity/buttom_navigation_entity.dart';
 import 'package:e_commerce/features/home/view/widgets/navigation_bar_item.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
-static const String routeName = "mainView";
+  static const String routeName = "mainView";
   @override
   State<MainView> createState() => _MainViewState();
 }
@@ -17,25 +20,28 @@ class _MainViewState extends State<MainView> {
   Widget build(BuildContext context) {
     final views = getCurrentView();
 
-    return Scaffold(
-      body: IndexedStack(index: currentIndex, children: views),
-      bottomNavigationBar: Container(
-        height: 70,
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: List.generate(buttomNavigationItems.length, (index) {
-            final item = buttomNavigationItems[index];
-            return GestureDetector(
-              onTap: () {
-                setState(() => currentIndex = index);
-              },
-              child: NavigationBarItem(
-                isSelected: currentIndex == index,
-                navigationEntity: item,
-              ),
-            );
-          }),
+    return BlocProvider(
+      create: (context) => CartCubit(),
+      child: Scaffold(
+        body: MainViewBodyBloc(currentIndex: currentIndex, views: views),
+        bottomNavigationBar: Container(
+          height: 70,
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: List.generate(buttomNavigationItems.length, (index) {
+              final item = buttomNavigationItems[index];
+              return GestureDetector(
+                onTap: () {
+                  setState(() => currentIndex = index);
+                },
+                child: NavigationBarItem(
+                  isSelected: currentIndex == index,
+                  navigationEntity: item,
+                ),
+              );
+            }),
+          ),
         ),
       ),
     );

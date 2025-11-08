@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:e_commerce/core/entities/product_entity.dart';
 import 'package:e_commerce/core/widgets/fruit_item.dart';
@@ -10,7 +9,6 @@ class MostSellingGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    log("------------------"+ products[0].name);
     return SliverGrid.builder(
       itemCount: products.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

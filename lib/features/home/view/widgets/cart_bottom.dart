@@ -1,6 +1,8 @@
 import 'package:e_commerce/core/utiles/colors.dart';
-import 'package:e_commerce/features/home/domain/entity/car_entity.dart';
+import 'package:e_commerce/features/home/domain/entity/car_item_entity.dart';
+import 'package:e_commerce/features/home/presentation/cubits/card_cubit/cart_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CartButton extends StatefulWidget {
   const CartButton({super.key, required this.cardEntity});
@@ -11,18 +13,22 @@ class CartButton extends StatefulWidget {
 }
 
 class _CartButtonState extends State<CartButton> {
-  int _quantity = 3;
+  int get _quantity => widget.cardEntity.count;
 
   void _incrementQuantity() {
     setState(() {
-      _quantity++;
+      context.read<CartCubit>().increaseProductQuantity(
+        widget.cardEntity.productEntity,
+      );
     });
   }
 
   void _decrementQuantity() {
     setState(() {
-      if (_quantity > 0) {
-        _quantity--;
+      if (widget.cardEntity.count > 0) {
+        context.read<CartCubit>().decreaseProductQuantity(
+          widget.cardEntity.productEntity,
+        );
       }
     });
   }
@@ -54,9 +60,11 @@ class _CartButtonState extends State<CartButton> {
           color: Colors.grey.shade600,
           onPressed: _quantity > 0 ? _decrementQuantity : null,
         ),
+
         const Spacer(),
+
         Text(
-          "${widget.cardEntity.calculateTotalPrice()} جنيه",
+          "${widget.cardEntity.calculateTotalPrice().toStringAsFixed(0)} جنيه",
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
