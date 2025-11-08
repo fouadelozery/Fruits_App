@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/widgets/custtom_buttom.dart';
+import 'package:e_commerce/features/checkout/presentation/views/checkout_view.dart';
 import 'package:e_commerce/features/home/presentation/cubits/card_cubit/cart_cubit.dart';
 import 'package:e_commerce/features/home/view/widgets/build_appbar.dart';
 import 'package:e_commerce/features/home/view/widgets/card_header.dart';
@@ -58,7 +59,12 @@ class _CartViewBodyState extends State<CartViewBody> {
                         : CusttomButtom(
                           text:
                               "الدفع  ${context.watch<CartCubit>().cartEntity.calculateTotalPrice().toStringAsFixed(0)} جنيه",
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(
+                              context,
+                              CheckoutView.routeName,
+                            );
+                          },
                         ),
               ),
             ),

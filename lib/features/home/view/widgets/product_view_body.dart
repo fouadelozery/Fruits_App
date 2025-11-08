@@ -31,9 +31,7 @@ class _ProductViewBodyState extends State<ProductViewBody> {
           SliverToBoxAdapter(
             child: Column(
               children: [
-                buildappbar(
-                  title: "الممنتجات",
-                ),
+                buildappbar(title: "المنتجات"),
                 const SizedBox(height: 16),
 
                 const HomeSearch(),

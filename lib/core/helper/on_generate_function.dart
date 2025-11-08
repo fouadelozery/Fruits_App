@@ -1,6 +1,7 @@
 import 'package:e_commerce/features/auth/presentation/sign_up_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/login_view.dart';
 import 'package:e_commerce/features/best_selling/presentation/views/best_selling_view.dart';
+import 'package:e_commerce/features/checkout/presentation/views/checkout_view.dart';
 import 'package:e_commerce/features/home/view/main_view.dart';
 import 'package:e_commerce/features/onboarding/presentation/view/on_boarding_view.dart';
 import 'package:e_commerce/features/splash/splash_view.dart';
@@ -20,6 +21,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const OnBoardingView());
     case MainView.routeName:
       return MaterialPageRoute(builder: (_) => const MainView());
+    case CheckoutView.routeName:
+      return MaterialPageRoute(builder: (_) => const CheckoutView());
 
     default:
       return MaterialPageRoute(builder: (_) => const Scaffold());
