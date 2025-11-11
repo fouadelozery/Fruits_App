@@ -1,4 +1,3 @@
-import 'package:e_commerce/core/utiles/colors.dart';
 import 'package:flutter/material.dart';
 
 class UnselectedStepItem extends StatelessWidget {

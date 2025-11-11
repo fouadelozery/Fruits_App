@@ -1,12 +1,9 @@
-
 import 'package:e_commerce/core/helper/step_title.dart';
+import 'package:e_commerce/features/checkout/presentation/views/widgets/shipping.dart';
 import 'package:flutter/material.dart';
 
 class CheckoutPageView extends StatelessWidget {
-  const CheckoutPageView({
-    super.key,
-    required this.pageController,
-  });
+  const CheckoutPageView({super.key, required this.pageController});
 
   final PageController pageController;
 
@@ -15,10 +12,19 @@ class CheckoutPageView extends StatelessWidget {
     return PageView.builder(
       controller: pageController,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: stepTitle().length,
+      itemCount: getPages().length,
       itemBuilder: (context, index) {
-        return const SizedBox.shrink();
+        return getPages()[index];
       },
     );
+  }
+
+  List<Widget> getPages() {
+    return [
+      const Shipping(),
+      const SizedBox.shrink(),
+      const SizedBox.shrink(),
+      const SizedBox.shrink(),
+    ];
   }
 }
