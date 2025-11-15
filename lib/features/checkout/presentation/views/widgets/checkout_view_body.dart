@@ -14,6 +14,11 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   @override
   void initState() {
     pageController = PageController();
+    pageController.addListener(() {
+      setState(() {
+        currentPageNumber = pageController.page!.toInt();
+      });
+    });
     super.initState();
   }
 
@@ -23,6 +28,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
     super.dispose();
   }
 
+  int currentPageNumber = 0;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,11 +36,23 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
       child: Column(
         children: [
           const SizedBox(height: 16),
-          const CheckoutSteps(),
+          CheckoutSteps(
+            pageController: pageController,
+            currentStep: currentPageNumber,
+          ),
           Expanded(child: CheckoutPageView(pageController: pageController)),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: CusttomButtom(text: "التالي", onPressed: () {}),
+            child: CusttomButtom(
+              text: "التالي",
+              onPressed: () {
+                pageController.animateToPage(
+                  pageController.page!.toInt() + 1,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                );
+              },
+            ),
           ),
           SizedBox(height: MediaQuery.sizeOf(context).height * .02),
         ],

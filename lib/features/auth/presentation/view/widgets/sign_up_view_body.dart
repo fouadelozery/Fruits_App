@@ -37,6 +37,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               const SizedBox(height: 35),
               CustomTextFormField(
                 hintText: 'اسم المستخدم',
+                labelText: 'اسم المستخدم',
 
                 onSaved: (value) {
                   name = value!;
@@ -44,6 +45,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               ),
               const SizedBox(height: 24),
               CustomTextFormField(
+                labelText: 'البريد الإلكتروني',
                 hintText: 'البريد الإلكتروني',
                 onSaved: (value) {
                   email = value!;

@@ -1,5 +1,7 @@
 import 'package:e_commerce/core/helper/step_title.dart';
-import 'package:e_commerce/features/checkout/presentation/views/widgets/shipping.dart';
+import 'package:e_commerce/features/checkout/presentation/views/widgets/address_shipping_section.dart';
+import 'package:e_commerce/features/checkout/presentation/views/widgets/payment_section.dart';
+import 'package:e_commerce/features/checkout/presentation/views/widgets/shipping_section.dart';
 import 'package:flutter/material.dart';
 
 class CheckoutPageView extends StatelessWidget {
@@ -21,10 +23,9 @@ class CheckoutPageView extends StatelessWidget {
 
   List<Widget> getPages() {
     return [
-      const Shipping(),
-      const SizedBox.shrink(),
-      const SizedBox.shrink(),
-      const SizedBox.shrink(),
+      const ShippingSection(),
+      const AddressShippingSection(),
+      const PaymentSection(),
     ];
   }
 }

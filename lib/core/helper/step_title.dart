@@ -1,6 +1,3 @@
-   List<String> stepTitle(){ return [
-    "الشحن",
-    "العنوان",
-    "الدفع",
-    "المراجعة",
-  ];}
+List<String> stepTitle() {
+  return ["الشحن", "العنوان", "الدفع"];
+}

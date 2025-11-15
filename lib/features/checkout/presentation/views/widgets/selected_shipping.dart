@@ -13,9 +13,9 @@ class SelectedShipping extends StatelessWidget {
       width: 20,
       height: 20,
       margin: const EdgeInsets.all(8.0),
-      decoration: ShapeDecoration(
+      decoration: const ShapeDecoration(
         shape: OvalBorder(
-          side: BorderSide(color: Colors.grey., width: 1.0),
+          side: BorderSide(color: Colors.grey, width: 1.0),
         ),
         color: Colors.white,
       ),

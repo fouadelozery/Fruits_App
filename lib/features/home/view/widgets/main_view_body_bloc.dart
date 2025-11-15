@@ -21,9 +21,12 @@ class MainViewBodyBloc extends StatelessWidget {
         listener: (context, state) {
           if (state is CartProductAdded) {
             snackBarMethod(context, 'Product added to cart');
-          } else if (state is CartProductRemoved) {
+          }
+          if (state is CartProductRemoved) {
             snackBarMethod(context, 'Product removed from cart');
           }
+          if (state is CartProductQuantityIncreased) {
+          } else if (state is CartProductQuantityDecreased) {}
         },
         child: MainViewBody(currentIndex: currentIndex, views: views),
       ),

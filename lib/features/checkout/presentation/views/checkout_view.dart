@@ -7,7 +7,9 @@ class CheckoutView extends StatelessWidget {
   static const String routeName = "checkoutView";
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: buildappbar(title: "الشحن", isNotificationVisible: false),
       body: const SafeArea(child:  CheckoutViewBody()),
     );
