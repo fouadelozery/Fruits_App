@@ -63,6 +63,7 @@ class _CartViewBodyState extends State<CartViewBody> {
                             Navigator.pushNamed(
                               context,
                               CheckoutView.routeName,
+                              arguments: context.read<CartCubit>().cartEntity,
                             );
                           },
                         ),

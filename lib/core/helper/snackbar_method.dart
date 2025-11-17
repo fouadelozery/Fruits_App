@@ -15,7 +15,7 @@ void snackBarMethod(BuildContext context, String message) {
           ),
         ),
       ),
-      duration: const Duration(microseconds: 200),
+      duration: const Duration(milliseconds: 500),
     ),
   );
 }

@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:e_commerce/core/error/exception.dart';
 import 'package:e_commerce/core/error/failure.dart';
+
 import 'package:e_commerce/core/services/database_service.dart';
 import 'package:e_commerce/core/services/firebase_auth_service.dart';
 import 'package:e_commerce/core/services/shared_perfernces.dart';
@@ -42,11 +43,13 @@ class AuthRepoImp extends AuthRepo {
       return right(userEntity);
     } on Exceptions catch (e) {
       await deleteUser(user);
-      return left(ServerFailure( message: e.message));
+      return left(ServerFailure(message: e.message));
     } catch (e) {
       await deleteUser(user);
       log("Exception in create with emailandpassword  :$e ");
-      return left(ServerFailure( message: "حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى"));
+      return left(
+        ServerFailure(message: "حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى"),
+      );
     }
   }
 
@@ -74,7 +77,9 @@ class AuthRepoImp extends AuthRepo {
       return left(ServerFailure(message: e.message ?? "فشل تسجيل الدخول"));
     } catch (e, stack) {
       log("Exception in signInWithEmailAndPassword: $e", stackTrace: stack);
-      return left(ServerFailure(message: "حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى"));
+      return left(
+        ServerFailure(message: "حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى"),
+      );
     }
   }
 
@@ -89,7 +94,9 @@ class AuthRepoImp extends AuthRepo {
     } catch (e) {
       await deleteUser(user);
       log("Exception in create with log with face  :$e ");
-      return left(ServerFailure( message: "حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى"));
+      return left(
+        ServerFailure(message: "حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى"),
+      );
     }
   }
 

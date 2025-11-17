@@ -1,11 +1,8 @@
-
 import 'package:e_commerce/core/utiles/colors.dart';
 import 'package:flutter/material.dart';
 
 class UnSelectedShipping extends StatelessWidget {
-  const UnSelectedShipping({
-    super.key,
-  });
+  const UnSelectedShipping({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +16,6 @@ class UnSelectedShipping extends StatelessWidget {
         ),
         color: Colors.white,
       ),
-   
     );
   }
 }

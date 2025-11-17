@@ -12,9 +12,9 @@ abstract class AuthRepo {
     String email,
     String password,
   );
-//  Future<Either<Failure, UserEntity>> signInWithGoogle();
+  //  Future<Either<Failure, UserEntity>> signInWithGoogle();
   Future<Either<Failure, UserEntity>> signInWithFacebook();
   Future addData({required UserEntity user});
   Future getUserDate({required String uid});
-   Future saveUserDate({required UserEntity user});
+  Future saveUserDate({required UserEntity user});
 }

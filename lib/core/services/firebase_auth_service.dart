@@ -1,4 +1,4 @@
-import 'package:e_commerce/core/error/exception.dart';
+import 'package:e_commerce/core/error/exception.dart' show Exceptions;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
@@ -113,6 +113,7 @@ class FirebaseAuthService {
       facebookAuthCredential,
     )).user!;
   }
+
   bool isSignIn() {
     return FirebaseAuth.instance.currentUser != null;
   }
