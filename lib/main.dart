@@ -4,7 +4,6 @@ import 'package:e_commerce/core/services/custom_bloc_observer.dart';
 import 'package:e_commerce/core/services/get_it.dart';
 import 'package:e_commerce/core/services/shared_perfernces.dart';
 import 'package:e_commerce/core/utiles/colors.dart';
-import 'package:e_commerce/features/auth/data/repos/sign_google.dart';
 import 'package:e_commerce/features/splash/splash_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +14,7 @@ import 'firebase_options.dart';
 Future<void> main() async {
   Bloc.observer = CustomBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
-
+  /*
   await GoogleAuthInitializer.init(
     clientId:
         '367245762922-0qe5anj6cp2gm52hb7pktnl09bafrme6.apps.googleusercontent.com',
@@ -26,7 +25,7 @@ Future<void> main() async {
     onAuthError: (error) {
       debugPrint('Google Sign-In Error: $error');
     },
-  );
+  ); */
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await Preferences.init();
   setupGetIt();

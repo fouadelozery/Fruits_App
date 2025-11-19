@@ -11,6 +11,10 @@ class CheckoutViewBody extends StatefulWidget {
 
 class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   late PageController pageController;
+  ValueNotifier<AutovalidateMode> valueNotifier = ValueNotifier(
+    AutovalidateMode.disabled,
+  );
+
   @override
   void initState() {
     pageController = PageController();
@@ -25,10 +29,12 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   @override
   void dispose() {
     pageController.dispose();
+    valueNotifier.dispose();
     super.dispose();
   }
 
   int currentPageNumber = 0;
+  final GlobalKey<FormState> globalKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -40,17 +46,24 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
             pageController: pageController,
             currentStep: currentPageNumber,
           ),
-          Expanded(child: CheckoutPageView(pageController: pageController)),
+          Expanded(
+            child: CheckoutPageView(
+              pageController: pageController,
+
+              globalKey: globalKey,
+              valueListenable: valueNotifier,
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: CusttomButtom(
               text: "التالي",
               onPressed: () {
-                pageController.animateToPage(
-                  pageController.page!.toInt() + 1,
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeInOut,
-                );
+                if (currentPageNumber == 0) {
+                  _handleShippingValidation();
+                } else if (currentPageNumber == 1) {
+                  _handleAddressingValidation();
+                }
               },
             ),
           ),
@@ -58,5 +71,26 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         ],
       ),
     );
+  }
+
+  void _handleShippingValidation() {
+    pageController.animateToPage(
+      currentPageNumber + 1,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  void _handleAddressingValidation() {
+    if (globalKey.currentState!.validate()) {
+      globalKey.currentState!.save();
+      pageController.animateToPage(
+        pageController.page!.toInt() + 2,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    } else {
+      valueNotifier.value = AutovalidateMode.always;
+    }
   }
 }

@@ -6,6 +6,7 @@ import 'package:e_commerce/features/home/domain/entity/cart_entity.dart';
 class OrderEntity {
   final CartEntity cartEntity;
   bool? payByCach;
-  AddressingShippingEntity? addressingShippingEntity;
-  OrderEntity(this.cartEntity, {this.payByCach, this.addressingShippingEntity});
+  AddressingShippingEntity addressingShippingEntity =
+      AddressingShippingEntity();
+  OrderEntity(this.cartEntity, {this.payByCach});
 }

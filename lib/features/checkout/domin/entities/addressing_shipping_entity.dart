@@ -1,17 +1,19 @@
 class AddressingShippingEntity {
-  final String fullName;
-  final String phoneNumber;
-  final String address;
-  final String city;
-  final String addressDetails;
-  final String email;
+  String? fullName;
+  String? phoneNumber;
+  String? address;
+  String? city;
+  String? addressDetails;
+  String? email;
+  String? floor;
 
   AddressingShippingEntity({
-    required this.fullName,
-    required this.phoneNumber,
-    required this.address,
-    required this.city,
-    required this.addressDetails,
-    required this.email,
+    this.fullName,
+    this.phoneNumber,
+    this.address,
+    this.city,
+    this.addressDetails,
+    this.email,
+    this.floor,
   });
 }
