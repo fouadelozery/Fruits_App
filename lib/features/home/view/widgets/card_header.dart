@@ -9,17 +9,17 @@ class CartHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: 50,
+      height: 60,
       padding: const EdgeInsets.symmetric(vertical: 16),
-      color: Colors.grey,
+      color: Colors.grey.shade400,
       alignment: Alignment.center,
 
       child: Text(
         "لديك ${context.watch<CartCubit>().cartEntity.carItem.length} منتجات في السله",
         style: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-          height: 0.12,
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
         ),
       ),
     );

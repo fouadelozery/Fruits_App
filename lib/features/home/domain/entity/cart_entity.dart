@@ -24,7 +24,7 @@ class CartEntity {
         return item;
       }
     }
-    return CarItemEntity(productEntity: product, count: 1);
+    return CarItemEntity(productEntity: product, quantity: 1);
   }
 
   double calculateTotalPrice() {
@@ -34,6 +34,7 @@ class CartEntity {
     }
     return total;
   }
+
   removeCarItem(CarItemEntity carItemEntity) {
     carItem.remove(carItemEntity);
   }

@@ -5,6 +5,7 @@ AppBar buildappbar({
   required String title,
   bool isBackVisible = true,
   bool isNotificationVisible = true,
+  void Function()? onPressed,
 }) {
   return AppBar(
     backgroundColor: Colors.transparent,
@@ -21,7 +22,10 @@ AppBar buildappbar({
     centerTitle: true,
     leading: Visibility(
       visible: isBackVisible,
-      child: const Icon(Icons.arrow_back, color: Colors.black),
+      child: IconButton(
+        onPressed: onPressed,
+        icon: Icon(Icons.arrow_back, color: Colors.black),
+      ),
     ),
     title: Text(
       title,

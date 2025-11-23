@@ -29,7 +29,7 @@ class _ShippingSectionState extends State<ShippingSection>
           subtitle: "الدفع نقدًا عند استلام الطلب",
           price:
               (context.read<OrderEntity>().cartEntity.calculateTotalPrice()) +
-              2,
+              25,
           isSelected: selectedShippingIndex == 0,
         ),
         const SizedBox(height: 20),

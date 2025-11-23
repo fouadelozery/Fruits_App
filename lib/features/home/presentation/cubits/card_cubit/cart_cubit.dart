@@ -13,7 +13,7 @@ class CartCubit extends Cubit<CartCubitState> {
     bool isExist = cartEntity.isExist(productEntity);
     var carItemEntity = cartEntity.getCarItemByProduct(productEntity);
     if (isExist) {
-      carItemEntity.count += 1;
+      carItemEntity.quantity += 1;
     } else {
       cartEntity.addProduct(carItemEntity);
     }
@@ -25,7 +25,7 @@ class CartCubit extends Cubit<CartCubitState> {
     bool isExist = cartEntity.isExist(productEntity);
     if (isExist) {
       var carItemEntity = cartEntity.getCarItemByProduct(productEntity);
-      carItemEntity.count += 1;
+      carItemEntity.quantity += 1;
       emit(CartProductQuantityIncreased());
     }
   }
@@ -34,8 +34,8 @@ class CartCubit extends Cubit<CartCubitState> {
     bool isExist = cartEntity.isExist(productEntity);
     if (isExist) {
       var carItemEntity = cartEntity.getCarItemByProduct(productEntity);
-      if (carItemEntity.count > 1) {
-        carItemEntity.count -= 1;
+      if (carItemEntity.quantity > 1) {
+        carItemEntity.quantity -= 1;
       } else {
         cartEntity.carItem.remove(carItemEntity);
       }

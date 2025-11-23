@@ -36,7 +36,7 @@ class CheckoutPageView extends StatelessWidget {
         globalKey: globalKey,
         valueListenable: valueListenable,
       ),
-      const PaymentSection(),
+      PaymentSection(pageController: pageController),
     ];
   }
 }

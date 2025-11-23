@@ -13,7 +13,7 @@ class CartButton extends StatefulWidget {
 }
 
 class _CartButtonState extends State<CartButton> {
-  int get _quantity => widget.cardEntity.count;
+  int get _quantity => widget.cardEntity.quantity;
 
   void _incrementQuantity() {
     setState(() {
@@ -25,7 +25,7 @@ class _CartButtonState extends State<CartButton> {
 
   void _decrementQuantity() {
     setState(() {
-      if (widget.cardEntity.count > 0) {
+      if (widget.cardEntity.quantity > 0) {
         context.read<CartCubit>().decreaseProductQuantity(
           widget.cardEntity.productEntity,
         );

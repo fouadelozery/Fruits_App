@@ -35,7 +35,7 @@ class HomeAppbar extends StatelessWidget {
             ),
             const SizedBox(width: 3),
             Text(
-              getUserFromJson().name,
+              getUserData().name,
               style: const TextStyle(
                 color: Colors.black,
                 fontSize: 18,
