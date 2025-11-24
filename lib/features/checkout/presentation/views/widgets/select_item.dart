@@ -3,7 +3,12 @@ import 'package:e_commerce/features/checkout/presentation/views/widgets/unselect
 import 'package:flutter/material.dart';
 
 class SelectItem extends StatelessWidget {
-  const SelectItem({super.key, required this.stepNumber, required this.text, required this.isSelected});
+  const SelectItem({
+    super.key,
+    required this.stepNumber,
+    required this.text,
+    required this.isSelected,
+  });
   final String stepNumber;
   final String text;
   final bool isSelected;
@@ -12,7 +17,8 @@ class SelectItem extends StatelessWidget {
     return AnimatedCrossFade(
       firstChild: SelectedStepItem(stepNumber: stepNumber, text: text),
       secondChild: UnselectedStepItem(stepNumber: stepNumber, text: text),
-      crossFadeState: isSelected ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+      crossFadeState:
+          isSelected ? CrossFadeState.showFirst : CrossFadeState.showSecond,
       duration: const Duration(milliseconds: 300),
     );
   }

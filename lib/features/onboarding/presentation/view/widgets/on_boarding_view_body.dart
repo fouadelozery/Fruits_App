@@ -63,10 +63,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           child: CusttomButtom(
             onPressed: () {
               Preferences.setBool(kIsOnboardVisible, true);
-              Navigator.pushReplacementNamed(
-                context,
-                LoginView.routeName, 
-              );
+              Navigator.pushReplacementNamed(context, LoginView.routeName);
             },
             isVisible: (currentPage == 1),
 

@@ -9,4 +9,21 @@ class OrderEntity {
   AddressingShippingEntity addressingShippingEntity =
       AddressingShippingEntity();
   OrderEntity(this.cartEntity, {this.payByCash, required this.uId});
+  calculateShippingCost() {
+    if (payByCash == true) {
+      return 25;
+    } else {
+      return 0;
+    }
+  }
+
+  double calculateShippingDiscount() {
+    return 0;
+  }
+
+  double calculateTotalPriceAfterShippingAndDidcount() {
+    return cartEntity.calculateTotalPrice() +
+        calculateShippingCost() -
+        calculateShippingDiscount();
+  }
 }

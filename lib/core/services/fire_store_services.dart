@@ -34,7 +34,10 @@ class FireStoreServices implements DatabaseService {
       int? limit = query['limit'];
 
       var collectionRef = firestore.collection(path);
-      var queryRef = collectionRef.orderBy(orderByField, descending: descending);
+      var queryRef = collectionRef.orderBy(
+        orderByField,
+        descending: descending,
+      );
 
       if (limit != null && limit > 0) {
         queryRef = queryRef.limit(limit);

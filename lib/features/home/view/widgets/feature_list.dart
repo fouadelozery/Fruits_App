@@ -8,14 +8,16 @@ class FeatureList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      child: Row(children: [
-        ...List.generate(5, (index) {
-          return const Padding(
-            padding: EdgeInsets.only(right: 8.0),
-            child: FeatureItem(),
-          );
-        })
-      ]),
+      child: Row(
+        children: [
+          ...List.generate(5, (index) {
+            return const Padding(
+              padding: EdgeInsets.only(right: 8.0),
+              child: FeatureItem(),
+            );
+          }),
+        ],
+      ),
     );
   }
 }

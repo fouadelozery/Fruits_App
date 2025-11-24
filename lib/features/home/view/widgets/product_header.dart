@@ -29,8 +29,8 @@ class ProductHeader extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
           ),
-          child: SvgPicture.asset(Assets.imagesFilter
-        ),)
+          child: SvgPicture.asset(Assets.imagesFilter),
+        ),
       ],
     );
   }

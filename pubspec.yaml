@@ -43,6 +43,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_native_splash: ^2.4.6
+  flutter_paypal_payment: ^1.0.8
   flutter_svg: ^2.2.0
   flutter_svg_provider: ^1.0.7
   get_it: ^8.2.0

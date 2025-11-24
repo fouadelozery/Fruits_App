@@ -28,7 +28,8 @@ class _PasswordFormState extends State<PasswordForm> {
                 ? const Icon(Icons.remove_red_eye)
                 : const Icon(Icons.visibility_off),
       ),
-      icon: Icons.password_outlined, labelText: 'كلمة المرور',
+      icon: Icons.password_outlined,
+      labelText: 'كلمة المرور',
     );
   }
 }

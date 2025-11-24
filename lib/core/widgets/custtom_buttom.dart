@@ -2,7 +2,12 @@ import 'package:e_commerce/core/utiles/colors.dart';
 import 'package:flutter/material.dart';
 
 class CusttomButtom extends StatelessWidget {
-  const CusttomButtom({super.key, required this.text, this.isVisible,  required this.onPressed});
+  const CusttomButtom({
+    super.key,
+    required this.text,
+    this.isVisible,
+    required this.onPressed,
+  });
   final String text;
   final Function() onPressed;
   final bool? isVisible;
@@ -26,8 +31,12 @@ class CusttomButtom extends StatelessWidget {
           onPressed: onPressed,
           child: Text(
             text,
-            style: const TextStyle(fontSize: 20, color: Colors.white,
-            fontFamily: 'Cairo',fontWeight: FontWeight.bold),
+            style: const TextStyle(
+              fontSize: 20,
+              color: Colors.white,
+              fontFamily: 'Cairo',
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),

@@ -5,5 +5,9 @@ abstract class DatabaseService {
     String? id,
   });
 
-  Future<dynamic> getData({required String path, String? uid,Map<String,dynamic>? query});
+  Future<dynamic> getData({
+    required String path,
+    String? uid,
+    Map<String, dynamic>? query,
+  });
 }

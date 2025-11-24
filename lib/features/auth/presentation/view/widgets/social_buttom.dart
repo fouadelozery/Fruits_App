@@ -26,7 +26,9 @@ class SocialButtom extends StatelessWidget {
           ),
         ),
         child: ListTile(
-          visualDensity: const VisualDensity(vertical: VisualDensity.minimumDensity),
+          visualDensity: const VisualDensity(
+            vertical: VisualDensity.minimumDensity,
+          ),
           leading: SvgPicture.asset(image),
 
           title: Text(

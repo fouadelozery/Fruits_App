@@ -8,7 +8,6 @@ class UserEntity {
   final String email;
 
   UserEntity({required this.uid, required this.name, required this.email});
-
 }
 
 class UserData extends UserEntity {

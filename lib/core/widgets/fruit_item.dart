@@ -110,12 +110,16 @@ class FruitItem extends StatelessWidget {
                       ],
                     ),
                   ),
-                  trailing:  CircleAvatar(
+                  trailing: CircleAvatar(
                     backgroundColor: AppColors.primaryColor,
                     child: IconButton(
                       onPressed: () {
-                        context.read<CartCubit>().addProductToCart(productEntity);
-                    }   ,icon: const Icon(Icons.add, color: Colors.white)),
+                        context.read<CartCubit>().addProductToCart(
+                          productEntity,
+                        );
+                      },
+                      icon: const Icon(Icons.add, color: Colors.white),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 8),

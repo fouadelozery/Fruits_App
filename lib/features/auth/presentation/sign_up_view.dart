@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/helper/error_widget.dart';
 import 'package:e_commerce/core/services/get_it.dart';
+import 'package:e_commerce/core/utiles/colors.dart';
 import 'package:e_commerce/features/auth/domin/repo/auth_repo.dart';
 import 'package:e_commerce/features/auth/presentation/cubits/sign_up/sign_up_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/view/widgets/sign_up_view_body.dart';
@@ -41,8 +42,11 @@ class SignUpView extends StatelessWidget {
                     context: context,
                     barrierDismissible: false,
                     builder:
-                        (context) =>
-                            const Center(child: CircularProgressIndicator()),
+                        (context) => const Center(
+                          child: CircularProgressIndicator.adaptive(
+                            backgroundColor: AppColors.primaryColor,
+                          ),
+                        ),
                   );
                 } // Close the loading dialog
                 else {

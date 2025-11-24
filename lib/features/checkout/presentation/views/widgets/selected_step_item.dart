@@ -2,7 +2,11 @@ import 'package:e_commerce/core/utiles/colors.dart';
 import 'package:flutter/material.dart';
 
 class SelectedStepItem extends StatelessWidget {
-  const SelectedStepItem({super.key, required this.stepNumber, required this.text});
+  const SelectedStepItem({
+    super.key,
+    required this.stepNumber,
+    required this.text,
+  });
   final String stepNumber;
   final String text;
 

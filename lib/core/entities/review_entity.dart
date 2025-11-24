@@ -4,7 +4,6 @@ class ReviewEntity {
   final num rating;
   final String reviewDate;
   final String imageUrl;
-  
 
   ReviewEntity({
     required this.reviewerName,
@@ -12,6 +11,5 @@ class ReviewEntity {
     required this.rating,
     required this.reviewDate,
     required this.imageUrl,
-   
   });
 }

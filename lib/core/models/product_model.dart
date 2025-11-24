@@ -36,9 +36,10 @@ class ProductModel {
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
-    final reviewList = (json['reviews'] as List? ?? [])
-        .map((e) => ReviewModel.fromJson(e))
-        .toList();
+    final reviewList =
+        (json['reviews'] as List? ?? [])
+            .map((e) => ReviewModel.fromJson(e))
+            .toList();
 
     return ProductModel(
       countSold: json['countSold'] ?? 0,
@@ -73,8 +74,8 @@ class ProductModel {
       reviews: reviews.map((e) => e.toEntity()).toList(),
       countSold: countSold,
       averageRating: averageRating,
-      ratingCount: ratingCount, isOrginic: isOrginic, 
-      
+      ratingCount: ratingCount,
+      isOrginic: isOrginic,
     );
   }
 

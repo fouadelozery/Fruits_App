@@ -13,8 +13,7 @@ class OnBoardingPageView extends StatelessWidget {
       controller: controller,
       children: const [
         PageViewItem(
-          isVisible:
-              true, // Always visible for the first page
+          isVisible: true, // Always visible for the first page
           image: Assets.imagesFruit,
 
           subtitle: Padding(
@@ -65,8 +64,7 @@ class OnBoardingPageView extends StatelessWidget {
           ),
         ),
         PageViewItem(
-          isVisible:
-              false, // Not visible for the second page
+          isVisible: false, // Not visible for the second page
           image: Assets.imagesImagefruit2,
 
           subtitle: Padding(

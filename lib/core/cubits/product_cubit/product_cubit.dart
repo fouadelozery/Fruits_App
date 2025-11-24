@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:e_commerce/core/entities/product_entity.dart';
 import 'package:e_commerce/core/repo/product_repo/product_repo.dart';
 
-
 part 'product_state.dart';
 
 class ProductCubit extends Cubit<ProductState> {
@@ -12,14 +11,12 @@ class ProductCubit extends Cubit<ProductState> {
   Future<void> fetchProducts() async {
     emit(ProductLoading());
     final result = await productRepo.getProducts();
-    result.fold(
-      (failure) => emit(ProductError(failure.message)),
-      (products) {
-        productLength = products.length;
-        emit(ProductSuccess(products));
-      },
-    );
+    result.fold((failure) => emit(ProductError(failure.message)), (products) {
+      productLength = products.length;
+      emit(ProductSuccess(products));
+    });
   }
+
   Future<void> fetchBestSellingProducts() async {
     emit(ProductLoading());
     final result = await productRepo.getBestSellingProducts();

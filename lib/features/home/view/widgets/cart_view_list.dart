@@ -13,7 +13,10 @@ class CartViewList extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.all(8.0),
-          child: CartItem(cardEntity: cardItem[index], cartEntityItem: cardItem[index]),
+          child: CartItem(
+            cardEntity: cardItem[index],
+            cartEntityItem: cardItem[index],
+          ),
         );
       },
       itemCount: cardItem.length,

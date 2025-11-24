@@ -85,5 +85,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'fruitsapp-61a6b.firebasestorage.app',
     measurementId: 'G-ZYXZ4T6TH6',
   );
-
 }
