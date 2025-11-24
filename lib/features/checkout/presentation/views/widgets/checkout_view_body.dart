@@ -123,7 +123,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
               note: "Contact us for any questions on your order.",
               onSuccess: (Map params) async {
                 Navigator.pop(context);
-                snackBarMethod(context, "تم الدفع بنجاح")
+                snackBarMethod(context, "تم الدفع بنجاح");
               },
               onError: (error) {
                 Navigator.pop(context);
