@@ -32,7 +32,7 @@ class AddressShippingSection extends StatelessWidget {
                     labelText: "الاسم",
                     onSaved: (value) {
                       context
-                          .read<OrderEntity>()
+                          .read<OrderInputEntity>()
                           .addressingShippingEntity
                           .fullName = value!;
                     },
@@ -43,7 +43,7 @@ class AddressShippingSection extends StatelessWidget {
                     labelText: "الهاتف",
                     onSaved: (value) {
                       context
-                          .read<OrderEntity>()
+                          .read<OrderInputEntity>()
                           .addressingShippingEntity
                           .phoneNumber = value!;
                     },
@@ -54,7 +54,7 @@ class AddressShippingSection extends StatelessWidget {
                     labelText: "الايميل",
                     onSaved: (value) {
                       context
-                          .read<OrderEntity>()
+                          .read<OrderInputEntity>()
                           .addressingShippingEntity
                           .email = value!;
                     },
@@ -65,7 +65,7 @@ class AddressShippingSection extends StatelessWidget {
                     labelText: "العنوان",
                     onSaved: (value) {
                       context
-                          .read<OrderEntity>()
+                          .read<OrderInputEntity>()
                           .addressingShippingEntity
                           .address = value!;
                     },
@@ -76,7 +76,7 @@ class AddressShippingSection extends StatelessWidget {
                     labelText: "المدينة",
                     onSaved: (value) {
                       context
-                          .read<OrderEntity>()
+                          .read<OrderInputEntity>()
                           .addressingShippingEntity
                           .city = value!;
                     },
@@ -88,7 +88,7 @@ class AddressShippingSection extends StatelessWidget {
                     labelText: "رقم الشقه",
                     onSaved: (value) {
                       context
-                          .read<OrderEntity>()
+                          .read<OrderInputEntity>()
                           .addressingShippingEntity
                           .floor = value;
                     },

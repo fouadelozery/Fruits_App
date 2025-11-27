@@ -5,6 +5,7 @@ import 'package:e_commerce/core/utiles/app_key.dart';
 import 'package:e_commerce/core/widgets/custtom_buttom.dart';
 import 'package:e_commerce/features/checkout/domin/entities/order_entity.dart';
 import 'package:e_commerce/features/checkout/domin/entities/pay_payment_entity/pay_payment_entity.dart';
+import 'package:e_commerce/features/checkout/presentation/views/cubits/add_order/add_cubit_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/views/widgets/checkout_page_view.dart';
 import 'package:e_commerce/features/checkout/presentation/views/widgets/checkout_steps.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +54,28 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         children: [
           const SizedBox(height: 16),
           CheckoutSteps(
+            onTap: (index) {
+              if (currentPageNumber == 0) {
+                pageController.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 200),
+                  curve: Curves.easeInOut,
+                );
+              } else if (index == 1) {
+                var orderEntity = context.read<OrderInputEntity>();
+                if (orderEntity.payByCash != null) {
+                  pageController.animateToPage(
+                    index,
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.easeInOut,
+                  );
+                } else {
+                  snackBarMethod(context, "يرجي اختيار طريقه الدفع");
+                }
+              } else {
+                _handleAddressingValidation();
+              }
+            },
             pageController: pageController,
             currentStep: currentPageNumber,
           ),
@@ -106,10 +129,12 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   }
 
   void _handlePayment() {
-    var orderEntity = context.read<OrderEntity>();
+    var orderEntity = context.read<OrderInputEntity>();
     PayPaymentEntity payPaymentEntity = PayPaymentEntity.fromEntity(
       orderEntity,
     );
+    var addOrderCubit = context.read<AddOrderCubit>();
+    log(payPaymentEntity.toJson().toString());
 
     Navigator.of(context).push(
       MaterialPageRoute(
@@ -123,7 +148,10 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
               note: "Contact us for any questions on your order.",
               onSuccess: (Map params) async {
                 Navigator.pop(context);
-                snackBarMethod(context, "تم الدفع بنجاح");
+                Future.delayed(const Duration(seconds: 2), () {
+                  snackBarMethod(context, "تم الدفع بنجاح");
+                });
+                addOrderCubit.addOrder(order: orderEntity);
               },
               onError: (error) {
                 Navigator.pop(context);

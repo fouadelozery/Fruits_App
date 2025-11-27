@@ -9,7 +9,7 @@ class PayPaymentEntity {
   ItemList? itemList;
 
   PayPaymentEntity({this.amount, this.description, this.itemList});
-  factory PayPaymentEntity.fromEntity(OrderEntity entity) {
+  factory PayPaymentEntity.fromEntity(OrderInputEntity entity) {
     return PayPaymentEntity(
       amount: AmountEntity.fromEntity(entity),
       description: "Payment",

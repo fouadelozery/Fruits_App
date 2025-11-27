@@ -15,7 +15,7 @@ class AmountEntity {
     "details": details?.toJson(),
   };
 
-  factory AmountEntity.fromEntity(OrderEntity orderEntity) {
+  factory AmountEntity.fromEntity(OrderInputEntity orderEntity) {
     return AmountEntity(
       total:
           orderEntity.calculateTotalPriceAfterShippingAndDidcount().toString(),

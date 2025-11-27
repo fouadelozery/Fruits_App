@@ -30,7 +30,7 @@ class PaymentSection extends StatelessWidget {
                       ),
                       Text(
                         context
-                            .read<OrderEntity>()
+                            .read<OrderInputEntity>()
                             .cartEntity
                             .calculateTotalPrice()
                             .toString(),
@@ -59,7 +59,7 @@ class PaymentSection extends StatelessWidget {
                       ),
                       Text(
                         (context
-                                    .read<OrderEntity>()
+                                    .read<OrderInputEntity>()
                                     .cartEntity
                                     .calculateTotalPrice() +
                                 25)
@@ -91,7 +91,7 @@ class PaymentSection extends StatelessWidget {
                       ),
                       const SizedBox(width: 3),
                       Text(
-                        "${context.read<OrderEntity>().addressingShippingEntity}",
+                        "${context.read<OrderInputEntity>().addressingShippingEntity}",
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
@@ -110,7 +110,7 @@ class PaymentSection extends StatelessWidget {
                         onTap: () {
                           pageController.animateToPage(
                             pageController.page!.toInt() - 1,
-                            duration: Duration(milliseconds: 300),
+                            duration: const Duration(milliseconds: 300),
                             curve: Curves.linear,
                           );
                         },
@@ -123,11 +123,6 @@ class PaymentSection extends StatelessWidget {
                         ),
                       ),
                     ],
-                  ),
-                  const SizedBox(height: 12),
-                  const Text(
-                    "6257 **** **** ****",
-                    style: TextStyle(fontSize: 16),
                   ),
                 ],
               ),

@@ -28,7 +28,10 @@ class _ShippingSectionState extends State<ShippingSection>
           title: "الدفع عند الاستلام",
           subtitle: "الدفع نقدًا عند استلام الطلب",
           price:
-              (context.read<OrderEntity>().cartEntity.calculateTotalPrice()) +
+              (context
+                  .read<OrderInputEntity>()
+                  .cartEntity
+                  .calculateTotalPrice()) +
               25,
           isSelected: selectedShippingIndex == 0,
         ),
@@ -42,7 +45,8 @@ class _ShippingSectionState extends State<ShippingSection>
           },
           title: "الدفع عبر الإنترنت",
           subtitle: "الدفع عبر الإنترنت باستخدام بطاقة الائتمان",
-          price: context.read<OrderEntity>().cartEntity.calculateTotalPrice(),
+          price:
+              context.read<OrderInputEntity>().cartEntity.calculateTotalPrice(),
 
           isSelected: selectedShippingIndex == 1,
         ),

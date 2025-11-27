@@ -16,7 +16,7 @@ class OrderModel {
     required this.orderProduct,
     required this.payMethods,
   });
-  factory OrderModel.fromEntity(OrderEntity order) {
+  factory OrderModel.fromEntity(OrderInputEntity order) {
     return OrderModel(
       price: order.cartEntity.calculateTotalPrice(),
       uId: order.uId,
@@ -34,6 +34,8 @@ class OrderModel {
     return {
       'price': price,
       'uId': uId,
+      "states": "pending",
+      "data": DateTime.now().toString(),
       'addressingShippingModel': addressingShippingModel.toJson(),
       'orderProduct': orderProduct.map((product) => product.tojson()).toList(),
       'payMethods': payMethods,

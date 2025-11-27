@@ -2,13 +2,13 @@ import 'package:e_commerce/features/checkout/domin/entities/addressing_shipping_
 
 import 'package:e_commerce/features/home/domain/entity/cart_entity.dart';
 
-class OrderEntity {
+class OrderInputEntity {
   final String uId;
   final CartEntity cartEntity;
   bool? payByCash;
   AddressingShippingEntity addressingShippingEntity =
       AddressingShippingEntity();
-  OrderEntity(this.cartEntity, {this.payByCash, required this.uId});
+  OrderInputEntity(this.cartEntity, {this.payByCash, required this.uId});
   calculateShippingCost() {
     if (payByCash == true) {
       return 25;

@@ -30,7 +30,7 @@ class CheckoutView extends StatelessWidget {
         ),
         body: SafeArea(
           child: Provider.value(
-            value: OrderEntity(cartEntity, uId: getUserData().uid),
+            value: OrderInputEntity(cartEntity, uId: getUserData().uid),
             child: const AddCubitBloc(widget: CheckoutViewBody()),
           ),
         ),

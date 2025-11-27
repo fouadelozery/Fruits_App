@@ -7,26 +7,27 @@ class DontHaveAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Text(
-          'ليس لديك حساب؟',
-          style: TextStyle(
-            color: AppColors.shadeColor,
-            fontSize: 16,
-            fontFamily: 'Cairo',
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const SignUpView()),
+        );
+      },
+      child: const Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'ليس لديك حساب؟',
+            style: TextStyle(
+              color: AppColors.shadeColor,
+              fontSize: 16,
+              fontFamily: 'Cairo',
+            ),
           ),
-        ),
-        const SizedBox(width: 3),
-        GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const SignUpView()),
-            );
-          },
-          child: const Text(
+          SizedBox(width: 3),
+
+          Text(
             "إنشاء حساب جديد",
             style: TextStyle(
               color: Colors.black,
@@ -35,8 +36,8 @@ class DontHaveAccount extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
