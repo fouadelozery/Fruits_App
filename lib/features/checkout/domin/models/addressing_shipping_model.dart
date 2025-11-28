@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:e_commerce/features/checkout/domin/entities/addressing_shipping_entity.dart';
 
 class AddressingShippingModel {
@@ -25,7 +23,7 @@ class AddressingShippingModel {
     return '$address $city $floor';
   }
 
-  factory AddressingShippingModel.fromEntity(AddressingShippingEntity entity) {
+  factory AddressingShippingModel.fromEntity(AddressingShippingEntity entity, {required orderID}) {
     return AddressingShippingModel(
       address: entity.address,
       fullName: entity.fullName,

@@ -289,6 +289,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.0"
+  fixnum:
+    dependency: transitive
+    description:
+      name: fixnum
+      sha256: b6dc7065e46c974bc7c5f143080a6764ec7a4be6da1285ececdc37be96de53be
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -978,6 +986,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.0"
+  uid:
+    dependency: "direct main"
+    description:
+      name: uid
+      sha256: "712d52a000e489c3344490abe8f3defc250c73191b652f9188c7e2e17fc96b09"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.1"
   universal_io:
     dependency: transitive
     description:
@@ -986,6 +1002,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.2"
+  uuid:
+    dependency: "direct main"
+    description:
+      name: uuid
+      sha256: a11b666489b1954e01d992f3d601b1804a33937b5a8fe677bd26b8a9f96f96e8
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.5.2"
   vector_graphics:
     dependency: transitive
     description:

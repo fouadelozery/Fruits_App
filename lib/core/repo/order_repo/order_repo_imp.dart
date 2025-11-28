@@ -15,9 +15,11 @@ class OrderRepoImp implements OrderRepo {
     required OrderInputEntity order,
   }) async {
     try {
+      var orderModel = OrderModel.fromEntity(order);
       databaseService.addData(
         path: Endpoint.addOrder,
-        data: OrderModel.fromEntity(order).toJson(),
+        data: orderModel.toJson(),
+        id: order.uId,
       );
       return const Right(null);
     } catch (e) {
