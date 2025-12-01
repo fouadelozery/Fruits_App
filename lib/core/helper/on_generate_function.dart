@@ -1,10 +1,13 @@
+import 'package:e_commerce/core/entities/product_entity.dart';
 import 'package:e_commerce/features/auth/presentation/sign_up_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/login_view.dart';
 import 'package:e_commerce/features/best_selling/presentation/views/best_selling_view.dart';
 import 'package:e_commerce/features/checkout/presentation/views/checkout_view.dart';
 import 'package:e_commerce/features/home/domain/entity/cart_entity.dart';
 import 'package:e_commerce/features/home/view/main_view.dart';
+import 'package:e_commerce/features/product_details/presentation/views/product_details_view.dart';
 import 'package:e_commerce/features/onboarding/presentation/view/on_boarding_view.dart';
+import 'package:e_commerce/features/profile/presentation/views/profile_view.dart';
 import 'package:e_commerce/features/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +15,14 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
     case SplashView.routeName:
       return MaterialPageRoute(builder: (_) => const SplashView());
+    case ProfileView.routeName:
+      return MaterialPageRoute(builder: (_) => const ProfileView());
+    case ProductDetailsView.routeName:
+      final product = settings.arguments as ProductEntity;
+      return MaterialPageRoute(
+        builder: (_) => ProductDetailsView(product: product),
+      );
+
     case LoginView.routeName:
       return MaterialPageRoute(builder: (_) => const LoginView());
     case BestSellingView.routeName:

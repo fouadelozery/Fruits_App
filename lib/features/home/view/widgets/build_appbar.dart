@@ -24,14 +24,14 @@ AppBar buildappbar({
       visible: isBackVisible,
       child: IconButton(
         onPressed: onPressed,
-        icon: Icon(Icons.arrow_back, color: Colors.black),
+        icon: const Icon(Icons.arrow_back, color: Colors.black),
       ),
     ),
     title: Text(
       title,
       style: const TextStyle(
         color: Colors.black,
-        fontSize: 20,
+        fontSize: 22,
         fontFamily: 'Cairo',
         fontWeight: FontWeight.bold,
       ),

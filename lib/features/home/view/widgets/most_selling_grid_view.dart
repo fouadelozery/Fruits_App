@@ -16,7 +16,9 @@ class MostSellingGridView extends StatelessWidget {
         childAspectRatio: 163 / 214,
       ),
       itemBuilder: (context, index) {
-        return FruitItem(productEntity: products[index]);
+        return GestureDetector(
+          child: FruitItem(productEntity: products[index]),
+        );
       },
     );
   }

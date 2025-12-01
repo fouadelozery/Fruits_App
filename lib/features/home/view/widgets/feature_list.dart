@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/product_details/presentation/views/product_details_view.dart';
 import 'package:e_commerce/features/home/view/widgets/feature_item.dart';
 import 'package:flutter/material.dart';
 

@@ -8,6 +8,7 @@ import 'package:e_commerce/features/checkout/domin/entities/pay_payment_entity/p
 import 'package:e_commerce/features/checkout/presentation/views/cubits/add_order/add_cubit_cubit.dart';
 import 'package:e_commerce/features/checkout/presentation/views/widgets/checkout_page_view.dart';
 import 'package:e_commerce/features/checkout/presentation/views/widgets/checkout_steps.dart';
+import 'package:e_commerce/features/home/view/main_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:provider/provider.dart';
@@ -147,8 +148,11 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
               transactions: [payPaymentEntity.toJson()],
               note: "Contact us for any questions on your order.",
               onSuccess: (Map params) async {
-                Navigator.pop(context);
-                Future.delayed(const Duration(seconds: 2), () {
+                Navigator.popUntil(
+                  context,
+                  ModalRoute.withName(MainView.routeName),
+                );
+                Future.delayed(const Duration(seconds: 5), () {
                   snackBarMethod(context, "تم الدفع بنجاح");
                 });
                 addOrderCubit.addOrder(order: orderEntity);
