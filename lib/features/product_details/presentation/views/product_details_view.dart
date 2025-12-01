@@ -12,7 +12,13 @@ class ProductDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildappbar(title: "محتوي المنتج", isBackVisible: true),
+      appBar: buildappbar(
+        title: "محتوي المنتج",
+        isBackVisible: true,
+        onPressed: () {
+          return Navigator.pop(context);
+        },
+      ),
 
       body: ProductDetailViewBody(product: product),
     );
