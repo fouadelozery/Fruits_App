@@ -16,8 +16,8 @@ class ProductRatingRow extends StatelessWidget {
     return Row(
       children: [
         Text(
-          "$rating ($reviews+) المراجعات",
-          style: const TextStyle(
+          "$rating ($reviews+) ",
+         style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
             fontFamily: "Cairo",

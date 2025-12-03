@@ -15,9 +15,19 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
     case SplashView.routeName:
       return MaterialPageRoute(builder: (_) => const SplashView());
+
     case ProfileView.routeName:
       return MaterialPageRoute(builder: (_) => const ProfileView());
+
     case ProductDetailsView.routeName:
+      if (settings.arguments is! ProductEntity) {
+        return MaterialPageRoute(
+          builder:
+              (_) => const Scaffold(
+                body: Center(child: Text('Invalid product data')),
+              ),
+        );
+      }
       final product = settings.arguments as ProductEntity;
       return MaterialPageRoute(
         builder: (_) => ProductDetailsView(product: product),
@@ -25,21 +35,37 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
 
     case LoginView.routeName:
       return MaterialPageRoute(builder: (_) => const LoginView());
+
     case BestSellingView.routeName:
       return MaterialPageRoute(builder: (_) => const BestSellingView());
+
     case SignUpView.routeName:
       return MaterialPageRoute(builder: (_) => const SignUpView());
+
     case OnBoardingView.routeName:
       return MaterialPageRoute(builder: (_) => const OnBoardingView());
+
     case MainView.routeName:
       return MaterialPageRoute(builder: (_) => const MainView());
+
     case CheckoutView.routeName:
+      if (settings.arguments is! CartEntity) {
+        return MaterialPageRoute(
+          builder:
+              (_) => const Scaffold(
+                body: Center(child: Text('Invalid cart data')),
+              ),
+        );
+      }
+      final cartEntity = settings.arguments as CartEntity;
       return MaterialPageRoute(
-        builder:
-            (_) => CheckoutView(cartEntity: settings.arguments as CartEntity),
+        builder: (_) => CheckoutView(cartEntity: cartEntity),
       );
 
     default:
-      return MaterialPageRoute(builder: (_) => const Scaffold());
+      return MaterialPageRoute(
+        builder:
+            (_) => const Scaffold(body: Center(child: Text('Page not found'))),
+      );
   }
 }

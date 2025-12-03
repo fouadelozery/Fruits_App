@@ -12,18 +12,18 @@ class SelectedStepItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        CircleAvatar(
+        const CircleAvatar(
           radius: 12,
           backgroundColor: AppColors.primaryColor,
           child: Icon(Icons.check, color: Colors.white, size: 16),
         ),
-        SizedBox(width: 5),
+        const SizedBox(width: 5),
         Text(
-          "الشحن",
-          style: TextStyle(
+          text,
+          style: const TextStyle(
             color: AppColors.primaryColor,
             fontWeight: FontWeight.bold,
             fontSize: 18,

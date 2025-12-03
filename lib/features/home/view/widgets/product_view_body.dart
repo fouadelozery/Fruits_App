@@ -37,7 +37,7 @@ class _ProductViewBodyState extends State<ProductViewBody> {
                 const HomeSearch(),
                 const SizedBox(height: 20),
                 ProductHeader(
-                  productLength: context.read<ProductCubit>().productLength,
+                  productLength: context.watch<ProductCubit>().productLength,
                 ),
                 const SizedBox(height: 20),
               ],

@@ -3,4 +3,5 @@ class Endpoint {
   static const getUserData = "users";
   static const getProducts = "products";
   static const addOrder = "order";
+  static const fetchOrder = "order";
 }

@@ -1,7 +1,7 @@
 import 'dart:developer';
-
 import 'package:e_commerce/core/helper/snackbar_method.dart';
 import 'package:e_commerce/core/utiles/app_key.dart';
+import 'package:e_commerce/core/utiles/colors.dart';
 import 'package:e_commerce/core/widgets/custtom_buttom.dart';
 import 'package:e_commerce/features/checkout/domin/entities/order_entity.dart';
 import 'package:e_commerce/features/checkout/domin/entities/pay_payment_entity/pay_payment_entity.dart';
@@ -31,13 +31,14 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
 
   @override
   void initState() {
-    pageController = PageController();
-    pageController.addListener(() {
-      setState(() {
-        currentPageNumber = pageController.page!.toInt();
-      });
-    });
     super.initState();
+
+    pageController =
+        PageController()..addListener(() {
+          setState(() {
+            currentPageNumber = pageController.page!.toInt();
+          });
+        });
   }
 
   @override
@@ -54,6 +55,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
       child: Column(
         children: [
           const SizedBox(height: 16),
+
           CheckoutSteps(
             onTap: (index) {
               if (currentPageNumber == 0) {
@@ -63,7 +65,14 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                   curve: Curves.easeInOut,
                 );
               } else if (index == 1) {
-                var orderEntity = context.read<OrderInputEntity>();
+                final orderEntity =
+                    context.read<OrderInputEntity?>(); // SAFE READ
+
+                if (orderEntity == null) {
+                  snackBarMethod(context, "خطأ في بيانات الطلب");
+                  return;
+                }
+
                 if (orderEntity.payByCash != null) {
                   pageController.animateToPage(
                     index,
@@ -71,7 +80,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                     curve: Curves.easeInOut,
                   );
                 } else {
-                  snackBarMethod(context, "يرجي اختيار طريقه الدفع");
+                  snackBarMethod(context, "يرجي اختيار طريقة الدفع");
                 }
               } else {
                 _handleAddressingValidation();
@@ -80,6 +89,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
             pageController: pageController,
             currentStep: currentPageNumber,
           ),
+
           Expanded(
             child: CheckoutPageView(
               pageController: pageController,
@@ -87,6 +97,8 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
               valueListenable: valueNotifier,
             ),
           ),
+
+          // Button
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: CusttomButtom(
@@ -97,16 +109,23 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                 } else if (currentPageNumber == 1) {
                   _handleAddressingValidation();
                 } else {
+                  final orderEntity =
+                      context.read<OrderInputEntity>(); // SAFE READ
+
+                  context.read<AddOrderCubit>().addOrder(order: orderEntity);
                   _handlePayment();
                 }
               },
             ),
           ),
+
           SizedBox(height: MediaQuery.sizeOf(context).height * .02),
         ],
       ),
     );
   }
+
+  // ---------------------- LOGIC -------------------------
 
   void _handleShippingValidation() {
     pageController.animateToPage(
@@ -130,39 +149,60 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   }
 
   void _handlePayment() {
-    var orderEntity = context.read<OrderInputEntity>();
-    PayPaymentEntity payPaymentEntity = PayPaymentEntity.fromEntity(
-      orderEntity,
-    );
-    var addOrderCubit = context.read<AddOrderCubit>();
+    final orderEntity = context.read<OrderInputEntity?>(); // SAFE READ
+
+    if (orderEntity == null) {
+      snackBarMethod(context, "لا يمكن إتمام الدفع: بيانات الطلب غير موجودة");
+      return;
+    }
+
+    final payPaymentEntity = PayPaymentEntity.fromEntity(orderEntity);
     log(payPaymentEntity.toJson().toString());
+
+    final addOrderCubit = context.read<AddOrderCubit>();
 
     Navigator.of(context).push(
       MaterialPageRoute(
         builder:
-            (BuildContext context) => PaypalCheckoutView(
+            (_) => PaypalCheckoutView(
               sandboxMode: true,
               clientId: clientId,
               secretKey: secretKey,
-
               transactions: [payPaymentEntity.toJson()],
               note: "Contact us for any questions on your order.",
+
               onSuccess: (Map params) async {
+                addOrderCubit.addOrder(order: orderEntity);
+
                 Navigator.popUntil(
                   context,
                   ModalRoute.withName(MainView.routeName),
                 );
-                Future.delayed(const Duration(seconds: 5), () {
-                  snackBarMethod(context, "تم الدفع بنجاح");
-                });
-                addOrderCubit.addOrder(order: orderEntity);
+                snackBarMethod(context, "تمت العملية بنجاح");
               },
+
               onError: (error) {
                 Navigator.pop(context);
                 log(error.toString());
               },
+
               onCancel: () {
-                Navigator.pop(context);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    backgroundColor: AppColors.primaryColor,
+                    content: Center(
+                      child: Text(
+                        "تعذر الدفع",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    duration: Duration(seconds: 4),
+                  ),
+                );
               },
             ),
       ),

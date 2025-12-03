@@ -21,7 +21,7 @@ class ProductHeaderAndQuantity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Text(
           name,
@@ -33,7 +33,7 @@ class ProductHeaderAndQuantity extends StatelessWidget {
         ),
         const SizedBox(height: 5),
         Text(
-          price.toString(),
+          "Price : ${price.toDouble()}",
           style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w500,

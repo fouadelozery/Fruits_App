@@ -135,4 +135,14 @@ class AuthRepoImp extends AuthRepo {
       return left(ServerFailure("حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى"));
     }
   } */
+
+  @override
+  Future<void> logOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      print('User logged out successfully');
+    } catch (e) {
+      print('Error logging out: $e');
+    }
+  }
 }

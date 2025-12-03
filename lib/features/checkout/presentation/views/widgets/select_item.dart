@@ -9,9 +9,11 @@ class SelectItem extends StatelessWidget {
     required this.text,
     required this.isSelected,
   });
+
   final String stepNumber;
   final String text;
   final bool isSelected;
+
   @override
   Widget build(BuildContext context) {
     return AnimatedCrossFade(
@@ -19,7 +21,8 @@ class SelectItem extends StatelessWidget {
       secondChild: UnselectedStepItem(stepNumber: stepNumber, text: text),
       crossFadeState:
           isSelected ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 250),
+      sizeCurve: Curves.easeInOut,
     );
   }
 }
