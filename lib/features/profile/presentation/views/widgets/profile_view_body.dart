@@ -2,10 +2,12 @@ import 'package:e_commerce/core/helper/snackbar_method.dart';
 import 'package:e_commerce/features/auth/domin/repo/auth_repo.dart';
 import 'package:e_commerce/features/auth/presentation/cubits/sign_out/sign_out_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/view/login_view.dart';
+import 'package:e_commerce/features/myorders/presentation/views/my_order_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/widgets/logout_button.dart';
 import 'package:e_commerce/features/profile/presentation/views/widgets/profile_header.dart';
 import 'package:e_commerce/features/profile/presentation/views/widgets/setting_section.dart';
 import 'package:e_commerce/features/profile/presentation/views/widgets/setting_tile.dart';
+import 'package:e_commerce/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -48,7 +50,13 @@ class ProfileViewBody extends StatelessWidget {
                     SettingsTile(
                       icon: Icons.shopping_bag_outlined,
                       title: 'طلباتي',
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => const MyOrdersView(),
+                          ),
+                        );
+                      },
                     ),
                     SettingsTile(
                       icon: Icons.credit_card_outlined,
@@ -73,7 +81,9 @@ class ProfileViewBody extends StatelessWidget {
                     SettingsTile(
                       icon: Icons.dark_mode_outlined,
                       title: 'الوضع',
-                      onTap: () {},
+                      onTap: () {
+                        context.read<ThemeCubit>().toggleTheme();
+                      },
                     ),
                     SettingsTile(
                       icon: Icons.help_outline,
