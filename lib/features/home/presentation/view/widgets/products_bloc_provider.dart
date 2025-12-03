@@ -1,6 +1,6 @@
 import 'package:e_commerce/core/cubits/product_cubit/product_cubit.dart';
-import 'package:e_commerce/features/home/view/widgets/dummy_product.dart';
-import 'package:e_commerce/features/home/view/widgets/most_selling_grid_view.dart';
+import 'package:e_commerce/features/home/presentation/view/widgets/dummy_product.dart';
+import 'package:e_commerce/features/home/presentation/view/widgets/most_selling_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';

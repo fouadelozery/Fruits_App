@@ -11,12 +11,12 @@ class OnBoardingPageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageView(
       controller: controller,
-      children: const [
+      children: [
         PageViewItem(
           isVisible: true, // Always visible for the first page
           image: Assets.imagesFruit,
 
-          subtitle: Padding(
+          subtitle: const Padding(
             padding: EdgeInsets.symmetric(horizontal: 14),
             child: Text(
               "نقدم لكم تطبيقًا  لعرض وبيع الفواكه،حيث يجمع بين سهولة الاستخدام والتصميم الأنيق. يتيح التطبيق تصفح مجموعة متنوعة من الفواكه مع تفاصيل كاملة عن كل منتج مثل الاسم، السعر، الوزن، الصورة مع إمكانية إضافة المنتجات إلى السلة وإتمام عملية الشراء بسهولة.",
@@ -27,7 +27,7 @@ class OnBoardingPageView extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'مرحبا بك في',
                 style: TextStyle(
                   fontSize: 24,
@@ -37,9 +37,9 @@ class OnBoardingPageView extends StatelessWidget {
                   fontFamily: 'Cairo',
                 ),
               ),
-              SizedBox(width: 3),
+              const SizedBox(width: 3),
 
-              Text(
+              const Text(
                 "App",
                 style: TextStyle(
                   fontSize: 24,
@@ -49,7 +49,7 @@ class OnBoardingPageView extends StatelessWidget {
                   fontFamily: 'Cairo',
                 ),
               ),
-              SizedBox(width: 3),
+              const SizedBox(width: 3),
               Text(
                 "Fruits",
                 style: TextStyle(
@@ -63,7 +63,7 @@ class OnBoardingPageView extends StatelessWidget {
             ],
           ),
         ),
-        PageViewItem(
+        const PageViewItem(
           isVisible: false, // Not visible for the second page
           image: Assets.imagesImagefruit2,
 

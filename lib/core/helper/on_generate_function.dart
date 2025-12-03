@@ -4,7 +4,7 @@ import 'package:e_commerce/features/auth/presentation/view/login_view.dart';
 import 'package:e_commerce/features/best_selling/presentation/views/best_selling_view.dart';
 import 'package:e_commerce/features/checkout/presentation/views/checkout_view.dart';
 import 'package:e_commerce/features/home/domain/entity/cart_entity.dart';
-import 'package:e_commerce/features/home/view/main_view.dart';
+import 'package:e_commerce/features/home/presentation/view/main_view.dart';
 import 'package:e_commerce/features/product_details/presentation/views/product_details_view.dart';
 import 'package:e_commerce/features/onboarding/presentation/view/on_boarding_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/profile_view.dart';

@@ -64,7 +64,7 @@ class PaymentSection extends StatelessWidget {
                                     .calculateTotalPrice() +
                                 25)
                             .toString(),
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: AppColors.primaryColor,
@@ -84,7 +84,7 @@ class PaymentSection extends StatelessWidget {
                     children: [
                       IconButton(
                         onPressed: () {},
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.location_on,
                           color: AppColors.primaryColor,
                         ),
@@ -100,10 +100,7 @@ class PaymentSection extends StatelessWidget {
                       const Spacer(),
                       IconButton(
                         onPressed: () {},
-                        icon: const Icon(
-                          Icons.edit,
-                          color: AppColors.primaryColor,
-                        ),
+                        icon: Icon(Icons.edit, color: AppColors.primaryColor),
                       ),
                       const SizedBox(width: 4),
                       GestureDetector(
@@ -114,7 +111,7 @@ class PaymentSection extends StatelessWidget {
                             curve: Curves.linear,
                           );
                         },
-                        child: const Text(
+                        child: Text(
                           "تعديل",
                           style: TextStyle(
                             color: AppColors.primaryColor,

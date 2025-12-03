@@ -11,11 +11,7 @@ class ProfileHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
-      decoration: BoxDecoration(
-        color: Colors.grey[50], // لون خلفية خفيف لإبراز هذا القسم
-        borderRadius: BorderRadius.circular(12.0),
-        border: Border.all(color: Colors.grey.shade200),
-      ),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(12.0)),
       child: Row(
         children: <Widget>[
           // تفاصيل الاسم والبري
@@ -25,7 +21,7 @@ class ProfileHeader extends StatelessWidget {
               children: <Widget>[
                 Text(
                   getUserData().name,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: AppColors.primaryColor,
@@ -34,10 +30,7 @@ class ProfileHeader extends StatelessWidget {
                 const SizedBox(height: 4.0),
                 Text(
                   (getUserData().email).toString(),
-                  style: const TextStyle(
-                    fontSize: 14,
-                    color: AppColors.primaryColor,
-                  ),
+                  style: TextStyle(fontSize: 14, color: AppColors.primaryColor),
                 ),
               ],
             ),
@@ -50,7 +43,7 @@ class ProfileHeader extends StatelessWidget {
               CircleAvatar(
                 radius: 60,
                 backgroundImage: AssetImage(imageUrl),
-                backgroundColor: Colors.grey.shade200,
+                backgroundColor: AppColors.shadeColor,
               ),
               Positioned(
                 bottom: 0,
@@ -58,10 +51,10 @@ class ProfileHeader extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(2),
                   decoration: const BoxDecoration(
-                    color: Colors.white,
+                    color: AppColors.lightBackground,
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.camera_alt,
                     size: 16,
                     color: AppColors.primaryColor,

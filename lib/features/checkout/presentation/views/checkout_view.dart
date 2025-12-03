@@ -6,7 +6,7 @@ import 'package:e_commerce/features/checkout/presentation/views/cubits/add_order
 import 'package:e_commerce/features/checkout/presentation/views/widgets/add_cubit_bloc.dart';
 import 'package:e_commerce/features/checkout/presentation/views/widgets/checkout_view_body.dart';
 import 'package:e_commerce/features/home/domain/entity/cart_entity.dart';
-import 'package:e_commerce/features/home/view/widgets/build_appbar.dart';
+import 'package:e_commerce/features/home/presentation/view/widgets/build_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';

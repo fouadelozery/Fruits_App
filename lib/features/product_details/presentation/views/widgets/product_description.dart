@@ -10,7 +10,7 @@ class ProductDescription extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       description,
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 16,
         color: AppColors.primaryColor,
         height: 1.5,

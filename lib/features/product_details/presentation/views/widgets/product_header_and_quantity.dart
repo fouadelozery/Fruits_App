@@ -25,7 +25,7 @@ class ProductHeaderAndQuantity extends StatelessWidget {
       children: [
         Text(
           name,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 32,
             fontWeight: FontWeight.bold,
             color: AppColors.primaryColor,
@@ -34,7 +34,7 @@ class ProductHeaderAndQuantity extends StatelessWidget {
         const SizedBox(height: 5),
         Text(
           "Price : ${price.toDouble()}",
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w500,
             color: AppColors.primaryColor,

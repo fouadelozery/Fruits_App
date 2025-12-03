@@ -25,8 +25,8 @@ class ProductImageAndAppBar extends StatelessWidget {
               color: AppColors.primaryColor.withOpacity(0.1),
               borderRadius: BorderRadius.circular(10),
             ),
-            child: const Padding(
-              padding: EdgeInsets.all(4.0),
+            child: Padding(
+              padding: const EdgeInsets.all(4.0),
               child: Icon(
                 Icons.keyboard_arrow_up,
                 color: AppColors.primaryColor,

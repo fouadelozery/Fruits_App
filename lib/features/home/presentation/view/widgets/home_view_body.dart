@@ -1,9 +1,9 @@
 import 'package:e_commerce/core/cubits/product_cubit/product_cubit.dart';
-import 'package:e_commerce/features/home/view/widgets/feature_list.dart';
-import 'package:e_commerce/features/home/view/widgets/home_appbar.dart';
-import 'package:e_commerce/features/home/view/widgets/home_search.dart';
-import 'package:e_commerce/features/home/view/widgets/most_seller.dart';
-import 'package:e_commerce/features/home/view/widgets/products_bloc_provider.dart';
+import 'package:e_commerce/features/home/presentation/view/widgets/feature_list.dart';
+import 'package:e_commerce/features/home/presentation/view/widgets/home_appbar.dart';
+import 'package:e_commerce/features/home/presentation/view/widgets/home_search.dart';
+import 'package:e_commerce/features/home/presentation/view/widgets/most_seller.dart';
+import 'package:e_commerce/features/home/presentation/view/widgets/products_bloc_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

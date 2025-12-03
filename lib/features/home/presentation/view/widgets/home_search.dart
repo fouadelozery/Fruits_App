@@ -27,7 +27,7 @@ class HomeSearch extends StatelessWidget {
             width: 30,
             child: Center(child: SvgPicture.asset(Assets.imagesSetting4)),
           ),
-          prefixIcon: const Icon(
+          prefixIcon: Icon(
             Icons.search,
             size: 30,
             color: AppColors.primaryColor,

@@ -13,7 +13,7 @@ class ActiveItem extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.only(left: 16),
         decoration: ShapeDecoration(
-          color: const Color(0xffF7F7F8),
+          color: AppColors.lightBackground,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -34,7 +34,7 @@ class ActiveItem extends StatelessWidget {
             const SizedBox(width: 5),
             Text(
               name,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
                 color: AppColors.primaryColor,

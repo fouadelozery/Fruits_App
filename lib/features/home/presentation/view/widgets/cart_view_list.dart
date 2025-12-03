@@ -1,6 +1,6 @@
 import 'package:e_commerce/core/utiles/colors.dart';
 import 'package:e_commerce/features/home/domain/entity/car_item_entity.dart';
-import 'package:e_commerce/features/home/view/widgets/cart_item.dart';
+import 'package:e_commerce/features/home/presentation/view/widgets/cart_item.dart';
 import 'package:flutter/material.dart';
 
 class CartViewList extends StatelessWidget {
@@ -21,7 +21,7 @@ class CartViewList extends StatelessWidget {
       },
       itemCount: cardItem.length,
       separatorBuilder:
-          (context, index) => const Divider(
+          (context, index) => Divider(
             color: AppColors.shadeColor,
             thickness: 0.5,
             height: 16,

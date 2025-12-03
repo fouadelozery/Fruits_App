@@ -7,10 +7,10 @@ import 'package:e_commerce/features/profile/presentation/views/widgets/logout_bu
 import 'package:e_commerce/features/profile/presentation/views/widgets/profile_header.dart';
 import 'package:e_commerce/features/profile/presentation/views/widgets/setting_section.dart';
 import 'package:e_commerce/features/profile/presentation/views/widgets/setting_tile.dart';
-import 'package:e_commerce/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:e_commerce/main.dart';
 
 class ProfileViewBody extends StatelessWidget {
   const ProfileViewBody({super.key});
@@ -38,7 +38,6 @@ class ProfileViewBody extends StatelessWidget {
               children: <Widget>[
                 const ProfileHeader(imageUrl: "assests/images/profileMe.png"),
                 const SizedBox(height: 24.0),
-
                 SettingsSection(
                   title: 'عام',
                   tiles: [
@@ -76,11 +75,20 @@ class ProfileViewBody extends StatelessWidget {
                     SettingsTile(
                       icon: Icons.language_outlined,
                       title: 'اللغة',
-                      onTap: () {},
+                      onTap: () {
+                        final localeCubit = context.read<LocaleCubit>();
+                        final currentLocale = localeCubit.state;
+
+                        if (currentLocale.languageCode == 'ar') {
+                          localeCubit.setEnglish();
+                        } else {
+                          localeCubit.setArabic();
+                        }
+                      },
                     ),
                     SettingsTile(
                       icon: Icons.dark_mode_outlined,
-                      title: 'الوضع',
+                      title: 'الوضع الليلي',
                       onTap: () {
                         context.read<ThemeCubit>().toggleTheme();
                       },

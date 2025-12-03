@@ -1,4 +1,4 @@
-import 'package:e_commerce/features/home/view/widgets/cart_view_body.dart';
+import 'package:e_commerce/features/home/presentation/view/widgets/cart_view_body.dart';
 import 'package:flutter/material.dart';
 
 class CartView extends StatelessWidget {

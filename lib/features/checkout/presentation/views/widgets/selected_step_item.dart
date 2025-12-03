@@ -15,15 +15,15 @@ class SelectedStepItem extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const CircleAvatar(
+        CircleAvatar(
           radius: 12,
           backgroundColor: AppColors.primaryColor,
-          child: Icon(Icons.check, color: Colors.white, size: 16),
+          child: const Icon(Icons.check, color: Colors.white, size: 16),
         ),
         const SizedBox(width: 5),
         Text(
           text,
-          style: const TextStyle(
+          style: TextStyle(
             color: AppColors.primaryColor,
             fontWeight: FontWeight.bold,
             fontSize: 18,

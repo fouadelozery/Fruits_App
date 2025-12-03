@@ -1,5 +1,5 @@
 import 'package:e_commerce/features/home/domain/entity/buttom_navigation_entity.dart';
-import 'package:e_commerce/features/home/view/widgets/navigation_bar_item.dart';
+import 'package:e_commerce/features/home/presentation/view/widgets/navigation_bar_item.dart';
 import 'package:flutter/material.dart';
 
 class CustomButtomBar extends StatefulWidget {

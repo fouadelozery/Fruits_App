@@ -36,7 +36,7 @@ class CustomTextFormField extends StatelessWidget {
 
         hintText: hintText,
       ),
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 18,
         color: AppColors.primaryColor,
         fontFamily: 'Cairo',
@@ -49,7 +49,7 @@ class CustomTextFormField extends StatelessWidget {
 
   OutlineInputBorder customBorder() {
     return OutlineInputBorder(
-      borderSide: const BorderSide(color: AppColors.primaryColor, width: 1.0),
+      borderSide: BorderSide(color: AppColors.primaryColor, width: 1.0),
 
       borderRadius: BorderRadius.circular(8.0),
     );

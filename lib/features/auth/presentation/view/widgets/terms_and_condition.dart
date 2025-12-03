@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/utiles/colors.dart';
 import 'package:flutter/material.dart';
 
 class TermsAndCondition extends StatefulWidget {
@@ -36,7 +37,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                 TextSpan(
                   text: "أوافق على ",
                   style: TextStyle(
-                    color: Colors.black,
+                    color: AppColors.darkSecondaryText,
                     fontSize: 18,
                     fontFamily: 'Cairo',
                   ),

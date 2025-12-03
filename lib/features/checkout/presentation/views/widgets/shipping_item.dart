@@ -72,7 +72,7 @@ class ShippingItem extends StatelessWidget {
                   child: Center(
                     child: Text(
                       "${price.toString()} جنيه",
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 14.0,
                         color: AppColors.primaryColor,
                       ),

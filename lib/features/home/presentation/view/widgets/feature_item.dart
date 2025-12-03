@@ -1,5 +1,5 @@
 import 'package:e_commerce/core/utiles/flutter_assets.dart';
-import 'package:e_commerce/features/home/view/widgets/feature_item_buttom.dart';
+import 'package:e_commerce/features/home/presentation/view/widgets/feature_item_buttom.dart';
 import 'package:flutter/material.dart';
 
 class FeatureItem extends StatelessWidget {

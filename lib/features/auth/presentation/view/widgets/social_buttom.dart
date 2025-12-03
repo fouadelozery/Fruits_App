@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/utiles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -19,9 +20,9 @@ class SocialButtom extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.lightBackground,
           shape: RoundedRectangleBorder(
-            side: const BorderSide(color: Color(0xffdcdede), width: 1),
+            side: const BorderSide(color: AppColors.lightBackground, width: 1),
             borderRadius: BorderRadius.circular(16),
           ),
         ),
@@ -35,7 +36,7 @@ class SocialButtom extends StatelessWidget {
             text,
             textAlign: TextAlign.center,
             style: const TextStyle(
-              color: Colors.black,
+              color: AppColors.lightText,
               fontSize: 18,
               fontFamily: 'Cairo',
             ),

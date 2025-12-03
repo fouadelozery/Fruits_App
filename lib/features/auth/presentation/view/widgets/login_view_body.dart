@@ -52,7 +52,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 },
               ),
               const SizedBox(height: 24),
-              const Align(
+              Align(
                 alignment: Alignment.centerRight,
                 child: Text(
                   "هل نسيت كلمة المرور؟",

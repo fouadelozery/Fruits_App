@@ -22,7 +22,7 @@ class AddCubitBloc extends StatelessWidget {
       },
       builder: (context, state) {
         if (state is AddOrderLoading) {
-          return const Center(
+          return Center(
             child: CircularProgressIndicator.adaptive(
               backgroundColor: AppColors.primaryColor,
             ),

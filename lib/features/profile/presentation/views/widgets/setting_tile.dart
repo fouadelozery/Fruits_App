@@ -2,7 +2,7 @@ import 'package:e_commerce/core/utiles/colors.dart';
 import 'package:flutter/material.dart';
 
 class SettingsTile extends StatelessWidget {
-  final IconData icon;
+  final IconData? icon;
   final String title;
   final VoidCallback onTap;
 
@@ -30,7 +30,7 @@ class SettingsTile extends StatelessWidget {
             Expanded(
               child: Text(
                 title,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: AppColors.primaryColor,
@@ -40,11 +40,7 @@ class SettingsTile extends StatelessWidget {
             ),
 
             // السهم
-            const Icon(
-              Icons.arrow_back_ios,
-              color: AppColors.primaryColor,
-              size: 18,
-            ),
+            Icon(icon, color: AppColors.primaryColor, size: 18),
           ],
         ),
       ),

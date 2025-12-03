@@ -14,7 +14,7 @@ class DontHaveAccount extends StatelessWidget {
           MaterialPageRoute(builder: (context) => const SignUpView()),
         );
       },
-      child: const Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
@@ -25,12 +25,12 @@ class DontHaveAccount extends StatelessWidget {
               fontFamily: 'Cairo',
             ),
           ),
-          SizedBox(width: 3),
+          const SizedBox(width: 3),
 
-          Text(
+          const Text(
             "إنشاء حساب جديد",
             style: TextStyle(
-              color: Colors.black,
+              color: AppColors.lightText,
               fontSize: 16,
               fontFamily: 'Cairo',
               fontWeight: FontWeight.bold,

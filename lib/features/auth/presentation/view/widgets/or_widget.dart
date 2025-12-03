@@ -6,11 +6,11 @@ class OrWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
         Expanded(child: Divider(color: AppColors.shadeColor, thickness: 1)),
-        SizedBox(width: 18),
-        Text(
+        const SizedBox(width: 18),
+        const Text(
           "او",
           style: TextStyle(
             color: Colors.black,
@@ -18,7 +18,7 @@ class OrWidget extends StatelessWidget {
             fontFamily: 'Cairo',
           ),
         ),
-        SizedBox(width: 18),
+        const SizedBox(width: 18),
         Expanded(child: Divider(color: AppColors.shadeColor, thickness: 1)),
       ],
     );

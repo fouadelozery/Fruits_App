@@ -65,7 +65,7 @@ class _CartButtonState extends State<CartButton> {
 
         Text(
           "${widget.cardEntity.calculateTotalPrice().toStringAsFixed(0)} جنيه",
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
             color: AppColors.primaryColor,

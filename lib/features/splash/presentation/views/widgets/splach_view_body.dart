@@ -3,7 +3,7 @@ import 'package:e_commerce/core/services/shared_perfernces.dart';
 import 'package:e_commerce/core/utiles/flutter_assets.dart';
 import 'package:e_commerce/core/widgets/constant.dart';
 import 'package:e_commerce/features/auth/presentation/view/login_view.dart';
-import 'package:e_commerce/features/home/view/main_view.dart';
+import 'package:e_commerce/features/home/presentation/view/main_view.dart';
 import 'package:e_commerce/features/onboarding/presentation/view/on_boarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

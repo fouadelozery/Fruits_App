@@ -16,11 +16,11 @@ class SignUpView extends StatelessWidget {
       create: (context) => SignUpCubit(getIt<AuthRepo>()),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.lightBackground,
           titleTextStyle: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: AppColors.lightText,
             fontFamily: 'Cairo',
           ),
           title: const Text('إنشاء حساب جديد'),
@@ -32,7 +32,7 @@ class SignUpView extends StatelessWidget {
             },
           ),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.lightBackground,
         body: Builder(
           builder: (context) {
             return BlocConsumer<SignUpCubit, SignUpState>(
@@ -42,7 +42,7 @@ class SignUpView extends StatelessWidget {
                     context: context,
                     barrierDismissible: false,
                     builder:
-                        (context) => const Center(
+                        (context) => Center(
                           child: CircularProgressIndicator.adaptive(
                             backgroundColor: AppColors.primaryColor,
                           ),

@@ -6,7 +6,7 @@ class OrdersLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: CircularProgressIndicator.adaptive(
         backgroundColor: AppColors.primaryColor,
       ),

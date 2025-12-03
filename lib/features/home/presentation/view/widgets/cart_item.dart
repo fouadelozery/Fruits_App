@@ -1,6 +1,6 @@
 import 'package:e_commerce/features/home/domain/entity/car_item_entity.dart';
 import 'package:e_commerce/features/home/presentation/cubits/card_cubit/cart_cubit.dart';
-import 'package:e_commerce/features/home/view/widgets/cart_bottom.dart';
+import 'package:e_commerce/features/home/presentation/view/widgets/cart_bottom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

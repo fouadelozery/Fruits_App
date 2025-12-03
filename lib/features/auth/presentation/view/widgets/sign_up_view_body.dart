@@ -99,7 +99,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
+                  Text(
                     'لديك حساب بالفعل؟',
                     style: TextStyle(
                       color: AppColors.shadeColor,
@@ -115,7 +115,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     child: const Text(
                       "تسجيل الدخول",
                       style: TextStyle(
-                        color: Colors.black,
+                        color: AppColors.lightText,
                         fontSize: 18,
                         fontFamily: 'Cairo',
                         fontWeight: FontWeight.bold,

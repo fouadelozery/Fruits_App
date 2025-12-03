@@ -23,7 +23,7 @@ class MostSeller extends StatelessWidget {
           onPressed: () {
             Navigator.pushNamed(context, BestSellingView.routeName);
           },
-          child: const Text(
+          child: Text(
             "عرض المزيد",
             style: TextStyle(
               color: AppColors.shadeColor,

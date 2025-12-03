@@ -13,8 +13,12 @@ class LogoutButton extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.primaryColor,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: const [
-          BoxShadow(color: Colors.black12, blurRadius: 4, offset: Offset(0, 2)),
+        boxShadow: [
+          const BoxShadow(
+            color: AppColors.darkSecondaryText,
+            blurRadius: 4,
+            offset: Offset(0, 2),
+          ),
         ],
       ),
       child: TextButton(
@@ -26,7 +30,7 @@ class LogoutButton extends StatelessWidget {
         child: const Text(
           'تسجيل الخروج',
           style: TextStyle(
-            color: Colors.white,
+            color: AppColors.lightSecondaryText,
             fontSize: 16,
             fontWeight: FontWeight.w600,
           ),

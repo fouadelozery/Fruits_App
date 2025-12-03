@@ -17,7 +17,7 @@ class CartHeader extends StatelessWidget {
 
       child: Text(
         "لديك ${context.watch<CartCubit>().cartEntity.carItem.length} منتجات في السله",
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
           color: AppColors.primaryColor,
