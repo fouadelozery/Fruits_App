@@ -5,7 +5,6 @@ class AddressingShippingModel {
   String? phoneNumber;
   String? address;
   String? city;
-  String? addressDetails;
   String? email;
   String? floor;
 
@@ -14,7 +13,6 @@ class AddressingShippingModel {
     this.phoneNumber,
     this.address,
     this.city,
-    this.addressDetails,
     this.email,
     this.floor,
   });
@@ -23,7 +21,10 @@ class AddressingShippingModel {
     return '$address $city $floor';
   }
 
-  factory AddressingShippingModel.fromEntity(AddressingShippingEntity entity, {required orderID}) {
+  factory AddressingShippingModel.fromEntity(
+    AddressingShippingEntity entity, {
+    required orderID,
+  }) {
     return AddressingShippingModel(
       address: entity.address,
       fullName: entity.fullName,
@@ -39,7 +40,6 @@ class AddressingShippingModel {
       'phoneNumber': phoneNumber,
       'address': address,
       'city': city,
-      'addressDetails': addressDetails,
       'email': email,
       'floor': floor,
     };
