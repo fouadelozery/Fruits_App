@@ -11,7 +11,7 @@ class MyOrdersView extends StatelessWidget {
     final String uId = FirebaseAuth.instance.currentUser!.uid;
 
     return Scaffold(
-      appBar: AppBar(title: Center(child: const Text("طلباتي"))),
+      appBar: AppBar(title: const Center(child: Text("طلباتي"))),
       body: MyOrderViewBody(uId: uId),
     );
   }

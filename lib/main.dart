@@ -3,6 +3,7 @@ import 'package:e_commerce/core/services/custom_bloc_observer.dart';
 import 'package:e_commerce/core/services/get_it.dart';
 import 'package:e_commerce/core/services/shared_perfernces.dart';
 import 'package:e_commerce/core/utiles/colors.dart';
+import 'package:e_commerce/features/home/presentation/cubits/card_cubit/cart_cubit.dart';
 import 'package:e_commerce/features/splash/splash_view.dart';
 import 'package:e_commerce/generated/l10n.dart'; // intl generated file
 import 'package:flutter/material.dart';
@@ -60,6 +61,7 @@ class FruitsApp extends StatelessWidget {
       providers: [
         BlocProvider<ThemeCubit>(create: (_) => ThemeCubit()),
         BlocProvider<LocaleCubit>(create: (_) => LocaleCubit()),
+        BlocProvider<CartCubit>(create: (_) => CartCubit()),
       ],
       child: BlocBuilder<LocaleCubit, Locale>(
         builder: (context, locale) {

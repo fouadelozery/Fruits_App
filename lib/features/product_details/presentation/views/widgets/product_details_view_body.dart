@@ -1,7 +1,6 @@
 import 'package:e_commerce/core/entities/product_entity.dart';
 import 'package:e_commerce/core/helper/snackbar_method.dart';
 import 'package:e_commerce/core/utiles/colors.dart';
-import 'package:e_commerce/features/home/domain/entity/car_item_entity.dart';
 import 'package:e_commerce/features/home/presentation/cubits/card_cubit/cart_cubit.dart';
 import 'package:e_commerce/features/product_details/presentation/views/widgets/feature_grid.dart';
 import 'package:e_commerce/features/product_details/presentation/views/widgets/product_description.dart';
@@ -25,16 +24,24 @@ class _ProductDetailViewBodyState extends State<ProductDetailViewBody> {
 
   void _incrementQuantity() {
     setState(() {
-      _quantity++;
+      context.read<CartCubit>().addProductToCart(widget.product);
     });
+    _quantity++;
   }
 
   void _decrementQuantity() {
     if (_quantity > 1) {
       setState(() {
+        context.read<CartCubit>().removeProductFromCart(widget.product);
         _quantity--;
       });
     }
+  }
+
+  @override
+  void initState() {
+    context.read<CartCubit>();
+    super.initState();
   }
 
   @override
@@ -119,6 +126,7 @@ class _ProductDetailViewBodyState extends State<ProductDetailViewBody> {
           elevation: 0,
         ),
         onPressed: () {
+          context.read<CartCubit>().addProductToCart(widget.product);
           snackBarMethod(
             context,
             'تم إضافة $_quantity من ${widget.product.name} إلى السلة.',

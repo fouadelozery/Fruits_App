@@ -9,7 +9,6 @@ abstract class AppColors {
   static Color primaryTextColor = Colors.black;
   static Color secondaryTextColor = Colors.white;
 
-  // Light theme constants
   static const Color lightPrimary = Color.fromARGB(255, 26, 9, 90);
   static const Color lightShade = Color.fromARGB(255, 161, 96, 96);
   static const Color lightText = Colors.black;
@@ -25,7 +24,7 @@ abstract class AppColors {
 
   // Apply light mode
   static void setLightMode() {
-    primaryColor = lightPrimary;
+    primaryColor = primaryColor;
     shadeColor = lightShade;
     primaryTextColor = lightText;
     secondaryTextColor = lightSecondaryText;

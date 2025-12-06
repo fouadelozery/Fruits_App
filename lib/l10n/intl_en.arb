@@ -115,5 +115,11 @@
   "fruit_boysenberry": "Boysenberry",
   "fruit_gooseberry": "Gooseberry",
   "fruit_cantaloupe": "Cantaloupe",
-  "fruit_honeydew": "Honeydew"
+  "fruit_honeydew": "Honeydew",
+  "Log_out" : "Logout",
+  "ui_home": "Home",
+  "ui_products": "Products",
+  "ui_cart": "Cart",
+  "ui_account": "Account",
+  "ui_pounds": "Pounds"
 }

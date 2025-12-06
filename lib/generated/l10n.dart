@@ -838,6 +838,36 @@ class S {
   String get fruit_honeydew {
     return Intl.message('Honeydew', name: 'fruit_honeydew', desc: '', args: []);
   }
+
+  /// `Logout`
+  String get Log_out {
+    return Intl.message('Logout', name: 'Log_out', desc: '', args: []);
+  }
+
+  /// `Home`
+  String get ui_home {
+    return Intl.message('Home', name: 'ui_home', desc: '', args: []);
+  }
+
+  /// `Products`
+  String get ui_products {
+    return Intl.message('Products', name: 'ui_products', desc: '', args: []);
+  }
+
+  /// `Cart`
+  String get ui_cart {
+    return Intl.message('Cart', name: 'ui_cart', desc: '', args: []);
+  }
+
+  /// `Account`
+  String get ui_account {
+    return Intl.message('Account', name: 'ui_account', desc: '', args: []);
+  }
+
+  /// `Pounds`
+  String get ui_pounds {
+    return Intl.message('Pounds', name: 'ui_pounds', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

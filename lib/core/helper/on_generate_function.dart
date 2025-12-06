@@ -8,6 +8,7 @@ import 'package:e_commerce/features/home/presentation/view/main_view.dart';
 import 'package:e_commerce/features/product_details/presentation/views/product_details_view.dart';
 import 'package:e_commerce/features/onboarding/presentation/view/on_boarding_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/profile_view.dart';
+import 'package:e_commerce/features/profile/presentation/views/widgets/personal_profile.dart';
 import 'package:e_commerce/features/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -47,6 +48,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
 
     case MainView.routeName:
       return MaterialPageRoute(builder: (_) => const MainView());
+    case PersonalProfile.routeName:
+      return MaterialPageRoute(builder: (_) => const PersonalProfile());
 
     case CheckoutView.routeName:
       if (settings.arguments is! CartEntity) {

@@ -1,11 +1,15 @@
 import 'package:e_commerce/core/utiles/colors.dart';
 import 'package:e_commerce/core/utiles/flutter_assets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class ProductHeader extends StatelessWidget {
-  const ProductHeader({super.key, required this.productLength});
+  const ProductHeader({
+    super.key,
+    required this.productLength,
+    required this.onFilterPressed,
+  });
   final int productLength;
+  final VoidCallback onFilterPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +28,17 @@ class ProductHeader extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           decoration: ShapeDecoration(
-            color: AppColors.shadeColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             ),
           ),
-          child: SvgPicture.asset(Assets.imagesFilter),
+          child: GestureDetector(
+            onTap: onFilterPressed,
+            child: IconButton(
+              onPressed: onFilterPressed,
+              icon: Icon(Icons.filter_list_alt, color: AppColors.primaryColor),
+            ),
+          ),
         ),
       ],
     );

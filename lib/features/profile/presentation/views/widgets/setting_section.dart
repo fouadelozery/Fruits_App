@@ -13,19 +13,19 @@ class SettingsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        // عنوان القسم (عام)
         Padding(
           padding: const EdgeInsets.only(bottom: 8.0),
           child: Text(
             title,
             style: TextStyle(
-              fontSize: 14,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
               color: AppColors.primaryColor,
+              fontFamily: "Cairo",
             ),
           ),
         ),
-        // قائمة الـ Tiles
+        // قائمة الـ Til
         ...tiles,
       ],
     );

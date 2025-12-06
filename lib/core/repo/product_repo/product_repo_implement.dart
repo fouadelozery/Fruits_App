@@ -50,4 +50,34 @@ class ProductRepoImplement implements ProductRepo {
       return Left(ServerFailure(message: "Failed to fetch products: $e"));
     }
   }
+
+  @override
+  Future<Either<Failure, List<ProductEntity>>>
+  getProductsByLowestPrice() async {
+    final result = await getProducts();
+    return result.fold((failure) => Left(failure), (products) {
+      products.sort((a, b) => a.price.compareTo(b.price));
+      return Right(products);
+    });
+  }
+
+  @override
+  Future<Either<Failure, List<ProductEntity>>>
+  getProductsByHighestPrice() async {
+    final result = await getProducts();
+    return result.fold((failure) => Left(failure), (products) {
+      products.sort((a, b) => b.price.compareTo(a.price));
+      return Right(products);
+    });
+  }
+
+  @override
+  Future<Either<Failure, List<ProductEntity>>>
+  getProductsAlphabetically() async {
+    final result = await getProducts();
+    return result.fold((failure) => Left(failure), (products) {
+      products.sort((a, b) => a.name.compareTo(b.name));
+      return Right(products);
+    });
+  }
 }

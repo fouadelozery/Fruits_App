@@ -4,6 +4,7 @@ import 'package:e_commerce/features/auth/presentation/cubits/sign_out/sign_out_c
 import 'package:e_commerce/features/auth/presentation/view/login_view.dart';
 import 'package:e_commerce/features/myorders/presentation/views/my_order_view.dart';
 import 'package:e_commerce/features/profile/presentation/views/widgets/logout_button.dart';
+import 'package:e_commerce/features/profile/presentation/views/widgets/personal_profile.dart';
 import 'package:e_commerce/features/profile/presentation/views/widgets/profile_header.dart';
 import 'package:e_commerce/features/profile/presentation/views/widgets/setting_section.dart';
 import 'package:e_commerce/features/profile/presentation/views/widgets/setting_tile.dart';
@@ -44,7 +45,9 @@ class ProfileViewBody extends StatelessWidget {
                     SettingsTile(
                       icon: Icons.person_outline,
                       title: 'الملف الشخصي',
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, PersonalProfile.routeName);
+                      },
                     ),
                     SettingsTile(
                       icon: Icons.shopping_bag_outlined,

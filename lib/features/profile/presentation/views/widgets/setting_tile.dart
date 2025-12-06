@@ -22,11 +22,10 @@ class SettingsTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 4.0),
         child: Row(
           children: <Widget>[
-            // الأيقونة
+            // ال
             Icon(icon, color: AppColors.primaryColor, size: 24),
             const SizedBox(width: 16.0),
 
-            // العنوان (Title)
             Expanded(
               child: Text(
                 title,
