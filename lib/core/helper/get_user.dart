@@ -7,7 +7,6 @@ import 'package:e_commerce/features/auth/domin/entity/user_entity.dart';
 UserEntity getUserData() {
   var jsonString = Preferences.getString(kUser);
   if (jsonString == null || jsonString.isEmpty) {
-    // إعادة
     return UserEntity(uid: '', name: 'Fouad', email: 'fouadsamy@gmail.com');
   }
   return UserModel.fromJson(jsonDecode(jsonString));

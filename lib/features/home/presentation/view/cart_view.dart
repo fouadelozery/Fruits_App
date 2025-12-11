@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class CartView extends StatelessWidget {
   const CartView({super.key});
+  static const String routeName = "cartView";
 
   @override
   Widget build(BuildContext context) {

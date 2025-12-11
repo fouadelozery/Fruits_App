@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/cubits/product_cubit/product_cubit.dart';
 import 'package:e_commerce/core/utiles/colors.dart';
+import 'package:e_commerce/features/home/presentation/view/main_view.dart';
 import 'package:e_commerce/features/home/presentation/view/widgets/build_appbar.dart';
 import 'package:e_commerce/features/home/presentation/view/widgets/home_search.dart';
 
@@ -32,7 +33,12 @@ class _ProductViewBodyState extends State<ProductViewBody> {
           SliverToBoxAdapter(
             child: Column(
               children: [
-                buildappbar(title: "المنتجات"),
+                buildappbar(
+                  title: "المنتجات",
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, MainView.routeName);
+                  },
+                ),
                 const SizedBox(height: 16),
 
                 HomeSearch(

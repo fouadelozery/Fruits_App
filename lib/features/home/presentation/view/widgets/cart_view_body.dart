@@ -4,6 +4,7 @@ import 'package:e_commerce/features/home/presentation/cubits/card_cubit/cart_cub
 import 'package:e_commerce/features/home/presentation/view/widgets/build_appbar.dart';
 import 'package:e_commerce/features/home/presentation/view/widgets/card_header.dart';
 import 'package:e_commerce/features/home/presentation/view/widgets/cart_view_list.dart';
+import 'package:e_commerce/features/home/presentation/view/widgets/product_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,7 +34,16 @@ class _CartViewBodyState extends State<CartViewBody> {
                 SliverToBoxAdapter(
                   child: Column(
                     children: [
-                      buildappbar(title: "السله", isNotificationVisible: false),
+                      buildappbar(
+                        title: "السله",
+                        isNotificationVisible: false,
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(
+                            context,
+                            ProductView.routeName,
+                          );
+                        },
+                      ),
                       const SizedBox(height: 20),
                       const CartHeader(),
                       const SizedBox(height: 25),

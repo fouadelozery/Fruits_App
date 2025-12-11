@@ -24,74 +24,6 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     context.read<ProductCubit>().fetchBestSellingProducts();
   }
 
-  void _showFilterSheet() {
-    showModalBottomSheet(
-      backgroundColor: AppColors.lightPrimary,
-      isScrollControlled: true,
-      context: context,
-      builder:
-          (_) => Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                leading: const Icon(
-                  Icons.arrow_upward,
-                  color: Colors.white,
-                ), // Lowest → Highest
-                title: const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Price: Low to High",
-                    style: TextStyle(color: Colors.white),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                onTap: () {
-                  context.read<ProductCubit>().sortByLowestPrice();
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(
-                  Icons.arrow_downward,
-                  color: Colors.white,
-                ), // Highest → Lowest
-                title: const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Price: High to Low",
-                    style: TextStyle(color: Colors.white),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                onTap: () {
-                  context.read<ProductCubit>().sortByHighestPrice();
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(
-                  Icons.sort_by_alpha,
-                  color: Colors.white,
-                ), // Alphabetical
-                title: const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Alphabetically (A-Z)",
-                    style: TextStyle(color: Colors.white),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                onTap: () {
-                  context.read<ProductCubit>().sortAlphabetically();
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -108,7 +40,6 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   onChanged: (value) {
                     context.read<ProductCubit>().searchProducts(value);
                   },
-                  onPressed: _showFilterSheet,
                 ),
                 const SizedBox(height: 20),
                 const FeatureList(),
