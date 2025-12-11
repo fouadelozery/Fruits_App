@@ -5,11 +5,8 @@ import 'package:e_commerce/core/repo/product_repo/product_repo_implement.dart';
 import 'package:e_commerce/core/services/database_service.dart';
 import 'package:e_commerce/core/services/fire_store_services.dart';
 import 'package:e_commerce/core/services/firebase_auth_service.dart';
-import 'package:e_commerce/core/services/strip_service.dart';
 import 'package:e_commerce/features/auth/domin/repo/auth_repo.dart';
 import 'package:e_commerce/features/auth/domin/repo/auth_repo_imp.dart';
-import 'package:e_commerce/features/checkout/data/repo/checkout_repo.dart';
-import 'package:e_commerce/features/checkout/data/repo/checkout_repo_imp.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -26,8 +23,5 @@ void setupGetIt() {
   getIt.registerSingleton<ProductRepo>(ProductRepoImplement());
   getIt.registerSingleton<OrderRepo>(
     OrderRepoImp(databaseService: getIt<DatabaseService>()),
-  );
-  getIt.registerSingleton<CheckoutRepo>(
-    CheckoutRepoImp(stripService: getIt<StripService>()),
   );
 }

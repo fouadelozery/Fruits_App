@@ -55,6 +55,5 @@ class _ShippingSectionState extends State<ShippingSection>
   }
 
   @override
-  // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 }

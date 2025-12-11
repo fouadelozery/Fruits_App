@@ -182,7 +182,8 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
               },
 
               onError: (error) {
-                Navigator.pop(context);
+                Navigator.popAndPushNamed(context, MainView.routeName);
+                snackBarMethod(context, "تعذر إتمام الدفع");
                 log(error.toString());
               },
 

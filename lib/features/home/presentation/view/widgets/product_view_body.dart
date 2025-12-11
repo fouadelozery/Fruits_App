@@ -63,7 +63,7 @@ class _ProductViewBodyState extends State<ProductViewBody> {
 
   void _showFilterSheet() {
     showModalBottomSheet(
-      backgroundColor: AppColors.lightPrimary,
+      backgroundColor: AppColors.primaryColor.withOpacity(0.7),
       isScrollControlled: true,
       context: context,
       builder:
